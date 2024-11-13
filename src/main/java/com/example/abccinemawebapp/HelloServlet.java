@@ -1,6 +1,7 @@
 package com.example.abccinemawebapp;
 
 import java.io.*;
+
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -9,7 +10,7 @@ public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World!";
+        message = "Hi Ravindu!";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
