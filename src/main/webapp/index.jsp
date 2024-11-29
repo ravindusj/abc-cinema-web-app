@@ -23,7 +23,7 @@
 <body class="bg-gray-100 font-sans">
 
 <!-- Fixed Navbar Start -->
-<nav id="navbar" class="bg-sky-200/15 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
+<nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
     <div class="flex items-center justify-between max-w-7xl mx-auto w-full">
         <!-- Logo -->
         <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
@@ -67,12 +67,12 @@
         <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Dark overlay -->
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-            <h1 class="text-4xl md:text-6xl font-normal">Welcome to KCC Multiplex</h1>
+            <h1 class="text-4xl md:text-6xl font-normal">Welcome to ABC Cinema</h1>
             <p class="mt-4 text-lg md:text-xl max-w-2xl">
                 Experience the best movies in town with high-quality sound and visuals. Book your tickets now!
             </p>
             <a href="buyTickets.jsp" class="mt-8 bg-sky-600 hover:bg-sky-800 text-white font-normal px-6 py-3 rounded text-lg">
-                Buy Tickets
+                Buy Tickets Now!
             </a>
         </div>
     </div>
@@ -89,37 +89,93 @@
         <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <!-- Film Card 1 -->
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300x400" alt="Film 1" class="w-full h-60 object-cover">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 1" class="w-full h-60 object-cover">
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold">Film Title 1</h3>
-                    <p class="text-gray-700 text-sm mt-2">An exciting adventure awaits. Join the journey in Film Title 1!</p>
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
             <!-- Film Card 2 -->
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300x400" alt="Film 2" class="w-full h-60 object-cover">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 2" class="w-full h-60 object-cover">
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold">Film Title 2</h3>
-                    <p class="text-gray-700 text-sm mt-2">A heartwarming story of love and resilience in Film Title 2.</p>
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
             <!-- Film Card 3 -->
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300x400" alt="Film 3" class="w-full h-60 object-cover">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 3" class="w-full h-60 object-cover">
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold">Film Title 3</h3>
-                    <p class="text-gray-700 text-sm mt-2">Witness an epic showdown in the thrilling Film Title 3.</p>
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
             <!-- Film Card 4 -->
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
-                <img src="https://via.placeholder.com/300x400" alt="Film 4" class="w-full h-60 object-cover">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold">Film Title 4</h3>
-                    <p class="text-gray-700 text-sm mt-2">A captivating mystery unfolds in the suspenseful Film Title 4.</p>
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
-            <!-- Add more film cards as needed -->
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+            <div class="p-4">
+                <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+            </div>
+        </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+            <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold">அமரன் | Amaran</h3>
+                    <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </section>
