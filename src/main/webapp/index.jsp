@@ -4,14 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind CSS with Java Servlet</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>ABC Cinema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // JavaScript to dynamically load the Poppins font
+        document.addEventListener("DOMContentLoaded", () => {
+            const link = document.createElement("link");
+            link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
+            link.rel = "stylesheet";
+            document.head.appendChild(link);
+
+            // Apply the font to the body tag
+            document.body.style.fontFamily = "'Poppins', sans-serif";
+        });
+    </script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans">
 
 <!-- Fixed Navbar Start -->
-<nav class="bg-black px-6 py-4 fixed w-11/12 top-0 left-1/2 transform -translate-x-1/2 z-50">
+<nav class="bg-black/80 px-6 py-4 fixed w-11/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg">
     <div class="flex items-center justify-between max-w-7xl mx-auto">
         <!-- Logo -->
         <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
@@ -19,7 +31,7 @@
         <!-- Navigation Links -->
         <ul class="flex items-center space-x-8">
             <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded">Home</a></li>
-            <li><a href="buyTickets.jsp" class="bg-yellow-500 text-white font-semibold text-sm px-4 py-2 rounded hover:bg-yellow-600">Buy Tickets</a></li>
+            <li><a href="buyTickets.jsp" class="bg-cyan-500 text-white font-semibold text-sm px-4 py-2 rounded hover:bg-yellow-600">Buy Tickets</a></li>
             <li><a href="movies.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded">Movies</a></li>
             <li><a href="cinemas.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded">Cinemas</a></li>
             <li><a href="contactus.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded">Contact Us</a></li>
@@ -30,7 +42,7 @@
 
 <!-- Hero Section Start -->
 <section class="pt-20">
-    <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://www.moviespuzzle.com/wp-content/uploads/2024/10/Lucky-Bhaskar-Censor-Done-Positive-Inside-Buzz-Ahead-of-Release-2.jpg');">
+    <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F111b45c9-1fdd-4e99-b3de-d60255302fa4.jpg?alt=media&token=c6194650-dae5-4b51-bb75-a563d5abd693');">
         <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Dark overlay -->
 
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
