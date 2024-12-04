@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 11/13/2024
-  Time: 10:10 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,19 +6,17 @@
 </head>
 <body class="bg-gray-900 text-gray-200">
 
-<!-- Buy Tickets Section -->
 <section class="max-w-4xl mx-auto pt-16 px-4 pb-12">
-    <!-- Step Navigation -->
     <h1 class="text-3xl font-bold text-center mb-8">Buy Tickets</h1>
 
     <div class="flex justify-between items-center mb-10 text-gray-400">
         <span class="text-yellow-500 font-semibold">Pick a Movie</span>
         <span>Your Details</span>
-        <span>Pick a Seat</span>
+        <button onclick="window.location.href='pick_a_seat.jsp';">Pick a Seat</button>
+
         <span>Summary</span>
     </div>
 
-    <!-- Date Selection -->
     <div class="mb-8">
         <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a date</h2>
         <div class="flex space-x-4">
@@ -36,7 +27,6 @@
         </div>
     </div>
 
-    <!-- Navigation Buttons -->
     <div class="flex justify-between">
         <button class="px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900">Previous</button>
         <button class="px-6 py-2 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600">Next</button>
