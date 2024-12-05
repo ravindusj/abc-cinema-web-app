@@ -4,7 +4,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Contact Us - KCC Multiplex</title>
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -17,7 +16,6 @@
       color: #fff;
     }
 
-    /* Navbar Styling */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -38,16 +36,6 @@
       color: #f39c12;
     }
 
-    /* Container Styling */
-    .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 30px;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
-    }
-
     .container h1 {
       font-size: 2.5em;
       margin-bottom: 15px;
@@ -62,11 +50,9 @@
       color: #bbb;
     }
 
-    /* Form Styling */
     form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      width: 36vw;
+      margin: auto;
     }
 
     form label {
@@ -97,7 +83,6 @@
       grid-column: span 2;
     }
 
-    /* Button Styling */
     form button {
       grid-column: span 2;
       padding: 12px 20px;
@@ -115,22 +100,10 @@
       background-color: #e67e22;
       box-shadow: 0 4px 15px rgba(230, 126, 34, 0.5);
     }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      form {
-        grid-template-columns: 1fr;
-      }
-
-      form button {
-        grid-column: span 1;
-      }
-    }
   </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <div class="navbar">
   <div><a href="index.jsp">Home</a></div>
   <div>
@@ -140,31 +113,31 @@
   </div>
 </div>
 
-<!-- Contact Form -->
 <div class="container">
   <h1>Contact Us</h1>
-  <p>Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
+  <p class="text-sm" style="width: 699px; margin: auto;">Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
   <form action="https://docs.google.com/forms/d/e/1FAIpQLSdnsppeqstxB8uUSpPZ5FWLawhI2lO6N9j0ZI9dwG_ZbZReeA/formResponse" method="post">
-    <!-- Name Field -->
-    <div>
+
+
+    <div class="flex items-center justify-between pt-9" style="gap: 9px">
+    <div class="flex flex-col w-full">
       <label for="name">Name</label>
       <input type="text" id="name" name="entry.1302254668" placeholder="Enter your full name" required>
     </div>
 
-    <!-- Email Field -->
-    <div>
+        <div class="flex flex-col w-full">
       <label for="email">Email</label>
       <input type="email" id="email" name="entry.1691193182" placeholder="Enter your email" required>
     </div>
+    </div>
 
-    <!-- Phone Number Field -->
-    <div>
+    <div class="flex items-center pt-9 justify-between" style="gap: 9px">
+    <div class="flex flex-col w-full">
       <label for="phone">Phone Number</label>
       <input type="tel" id="phone" name="entry.1012497427" placeholder="Enter your phone number" required>
     </div>
 
-    <!-- Subject Field -->
-    <div>
+    <div class="flex flex-col w-full">
       <label for="subject">Select Your Subject</label>
       <select id="subject" name="entry.1565475192" required>
         <option value="" disabled selected>Select a subject</option>
@@ -174,15 +147,16 @@
         <option value="Other">Other</option>
       </select>
     </div>
+    </div>
 
-    <!-- Message Field -->
-    <div>
+    <div class="flex flex-col pt-9">
       <label for="message">Type Your Message Here</label>
       <textarea id="message" name="entry.687026150" rows="6" placeholder="Write your message here" required></textarea>
     </div>
 
-    <!-- Submit Button -->
+    <div class="flex justify-center pt-9">
     <button type="submit">Submit</button>
+    </div>
   </form>
 </div>
 
