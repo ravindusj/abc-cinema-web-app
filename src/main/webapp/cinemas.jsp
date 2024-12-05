@@ -1,15 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 11/13/2024
-  Time: 10:28 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
-    <title>Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KCC Multiplex Cinemas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-200">
 
@@ -30,45 +25,93 @@
 <!-- Main Content -->
 <main class="pt-24 pb-12">
   <section class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row gap-8">
 
-      <!-- Cinema Image -->
-      <div class="md:w-1/2">
-        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall" class="rounded-lg shadow-lg mb-4">
+    <!-- Cinema Halls -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Gallery -->
-        <div class="flex space-x-4 overflow-x-auto">
-          <img src="https://via.placeholder.com/150" alt="Gallery Image 1" class="w-24 h-24 rounded-lg object-cover">
-          <img src="https://via.placeholder.com/150" alt="Gallery Image 2" class="w-24 h-24 rounded-lg object-cover">
-          <img src="https://via.placeholder.com/150" alt="Gallery Image 3" class="w-24 h-24 rounded-lg object-cover">
-          <img src="https://via.placeholder.com/150" alt="Gallery Image 4" class="w-24 h-24 rounded-lg object-cover">
-        </div>
-      </div>
+      <!-- Cinema Hall 1 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 1" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 1 - C1</h2>
+          <p class="text-gray-400 mb-4">Cinema 1 features the latest in Dolby Atmos surround sound, paired with ultra-bright 4K digital projection and 3D capabilities. With a seating capacity of 135, it's designed for an immersive experience.</p>
 
-      <!-- Cinema Details -->
-      <div class="md:w-1/2">
-        <h2 class="text-3xl font-bold mb-4">KCC Multiplex - C1</h2>
-        <p class="text-gray-400 mb-4">Walking through the new KCC Multiplex main entrance, on Sri Wickramarajasinghe Mawatha, takes you to the main lobby with the Box Office on the left and Cinema 1 on the right. C1 is a state-of-the-art modern cinema showcasing an immersive, unparalleled Dolby Atmos surround sound experience coupled with ultra-bright 4K projection with 3D capability. C1 seats 135 viewers and prides itself in having seating accessibility for wheelchairs. Each seat is designed and engineered for an all-round first-class experience for sounds and visuals – to the highest available industry standards.</p>
-
-        <!-- Features -->
-        <div class="space-y-2">
-          <div class="flex items-center space-x-2">
-            <span class="text-xl">📡</span>
-            <span class="text-lg font-medium">Dolby Atmos</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-xl">🔲</span>
-            <span class="text-lg font-medium">4K Digital Projection</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-xl">🎬</span>
-            <span class="text-lg font-medium">3D Capable</span>
+          <!-- Features -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">📡</span>
+              <span class="text-lg font-medium">Dolby Atmos</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🔲</span>
+              <span class="text-lg font-medium">4K Digital Projection</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🎬</span>
+              <span class="text-lg font-medium">3D Capable</span>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Cinema Hall 2 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 2" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 2 - C2</h2>
+          <p class="text-gray-400 mb-4">Cinema 2 offers a premium cinema experience with the latest sound and visual technologies. It seats 180 and is equipped with advanced projection systems, ensuring crystal-clear visuals and superior sound.</p>
+
+          <!-- Features -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">📡</span>
+              <span class="text-lg font-medium">Dolby Surround</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🔲</span>
+              <span class="text-lg font-medium">4K Projection</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🎬</span>
+              <span class="text-lg font-medium">3D Projection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cinema Hall 3 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 3" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 3 - C3</h2>
+          <p class="text-gray-400 mb-4">Cinema 3 is designed for large groups and families, featuring spacious seating and high-definition visuals. It seats 200 viewers and provides a premium cinematic experience with rich sound and clear imagery.</p>
+
+          <!-- Features -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">📡</span>
+              <span class="text-lg font-medium">Dolby Atmos</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🔲</span>
+              <span class="text-lg font-medium">HD Projection</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl">🎬</span>
+              <span class="text-lg font-medium">3D Capable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
+
+<!-- Footer -->
+<footer class="bg-black py-6 text-center text-gray-400">
+  <p>&copy; 2024 KCC Multiplex. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
