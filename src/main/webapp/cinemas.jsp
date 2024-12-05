@@ -13,8 +13,8 @@
   <div class="container mx-auto px-6 flex justify-between items-center">
     <h1 class="text-2xl font-bold text-white uppercase">KCC Multiplex</h1>
     <nav class="space-x-6">
-      <a href="home.jsp" class="text-white hover:text-yellow-500">Home</a>
-      <a href="buyticket.jsp" class="text-white hover:text-yellow-500">Buy Tickets</a>
+      <a href="index.jsp" class="text-white hover:text-yellow-500">Home</a>
+      <a href="buyTickets.jsp" class="text-white hover:text-yellow-500">Buy Tickets</a>
       <a href="movies.jsp" class="text-white hover:text-yellow-500">Movies</a>
       <a href="cinemas.jsp" class="text-yellow-500 font-semibold">Cinemas</a>
       <a href="contactus.jsp" class="text-white hover:text-yellow-500">Contact Us</a>
