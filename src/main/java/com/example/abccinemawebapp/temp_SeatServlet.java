@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/SeatServlet")
-public class SeatServlet extends HttpServlet {
+@WebServlet("/temp_SeatServlet")
+public class temp_SeatServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -4,55 +4,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Contact Us - KCC Multiplex</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #111;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: #fff;
-      margin: 0 15px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: #f39c12;
-    }
-
-    .container h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-      text-align: center;
-      color: #f39c12;
-    }
-
-    .container p {
-      font-size: 1.1em;
-      text-align: center;
-      margin-bottom: 30px;
-      color: #bbb;
-    }
 
     form {
       width: 36vw;
-      margin: auto;
     }
 
     form label {
@@ -102,24 +57,57 @@
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white">
 
-<div class="navbar">
-  <div><a href="index.jsp">Home</a></div>
-  <div>
-    <a href="movies.jsp">Movies</a>
-    <a href="cinemas.jsp">Cinemas</a>
-    <a href="contact.jsp">Contact Us</a>
+
+<!-- Fixed Navbar Start -->
+<nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
+  <div class="flex items-center justify-between max-w-7xl mx-auto w-full">
+    <!-- Logo -->
+    <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
+
+    <!-- Navigation Links -->
+    <ul class="flex items-center space-x-8">
+      <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Home</a></li>
+      <li><a href="buyTickets.jsp" class="bg-sky-600 text-white font-normal text-sm px-4 py-2 rounded hover:bg-sky-800">Buy Tickets</a></li>
+      <li><a href="movies.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Movies</a></li>
+      <li><a href="cinemas.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Cinemas</a></li>
+      <li><a href="contactus.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Contact Us</a></li>
+    </ul>
   </div>
-</div>
+</nav>
+<!-- Fixed Navbar End -->
 
-<div class="container">
-  <h1>Contact Us</h1>
-  <p class="text-sm" style="width: 699px; margin: auto;">Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdnsppeqstxB8uUSpPZ5FWLawhI2lO6N9j0ZI9dwG_ZbZReeA/formResponse" method="post">
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
+
+  // Function to handle navbar visibility based on scroll
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      // Scroll down: hide navbar smoothly
+      navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+    } else {
+      // Scroll up: show navbar smoothly and keep it centered
+      navbar.style.top = '0.5rem'; // Keep it fixed at its original position
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+  });
+</script>
 
 
-    <div class="flex items-center justify-between pt-9" style="gap: 9px">
+<div class="flex flex-col justify-center items-center min-h-screen">
+  <div>
+  <h1 class="text-4xl text-center font-bold">Contact Us</h1>
+  <p class="text-sm pt-9 text-center" style="width: 699px; margin: auto;">Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
+  </div>
+  <form class="pt-9"action="https://docs.google.com/forms/d/e/1FAIpQLSdnsppeqstxB8uUSpPZ5FWLawhI2lO6N9j0ZI9dwG_ZbZReeA/formResponse" method="post">
+
+
+    <div class="flex items-center justify-between" style="gap: 9px">
     <div class="flex flex-col w-full">
       <label for="name">Name</label>
       <input type="text" id="name" name="entry.1302254668" placeholder="Enter your full name" required>

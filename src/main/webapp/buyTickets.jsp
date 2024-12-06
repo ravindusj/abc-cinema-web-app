@@ -1,106 +1,107 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Buy Tickets</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Buy Tickets</title>
     <script>
         // Function to select a new option
         function selectOption(type, value, event) {
-            // Update the hidden input value and display text
-            document.getElementById(type + "-input").value = value;
-            document.getElementById(type + "-display").innerText = value;
+        // Update the hidden input value and display text
+        document.getElementById(type + "-input").value = value;
+        document.getElementById(type + "-display").innerText = value;
 
-            // Special handling for each selection type
-            if (type === 'date') {
-                // Get all date buttons
-                const dateButtons = document.querySelectorAll('#date-selection button');
+        // Special handling for each selection type
+        if (type === 'date') {
+        // Get all date buttons
+        const dateButtons = document.querySelectorAll('#date-selection button');
 
-                // Remove 'selected' state from all date buttons
-                dateButtons.forEach(button => {
-                    button.classList.remove('bg-yellow-500', 'text-gray-900');
-                    button.classList.add('bg-gray-800', 'text-white');
-                });
+        // Remove 'selected' state from all date buttons
+        dateButtons.forEach(button => {
+        button.classList.remove('bg-yellow-500', 'text-gray-900');
+        button.classList.add('bg-gray-800', 'text-white');
+        });
 
-                // Highlight the currently selected date button
-                event.target.classList.remove('bg-gray-800', 'text-white');
-                event.target.classList.add('bg-yellow-500', 'text-gray-900');
+        // Highlight the currently selected date button
+        event.target.classList.remove('bg-gray-800', 'text-white');
+        event.target.classList.add('bg-yellow-500', 'text-gray-900');
 
-                // Show movie selection after date selection
-                showSection('movie-selection');
-            } else if (type === 'movie') {
-                // Get all movie buttons
-                const movieButtons = document.querySelectorAll('#movie-selection button');
+        // Show movie selection after date selection
+        showSection('movie-selection');
+        } else if (type === 'movie') {
+        // Get all movie buttons
+        const movieButtons = document.querySelectorAll('#movie-selection button');
 
-                // Reset movie buttons
-                movieButtons.forEach(button => {
-                    button.classList.remove('bg-yellow-500', 'text-gray-900');
-                    button.classList.add('bg-gray-800', 'text-white');
-                });
+        // Reset movie buttons
+        movieButtons.forEach(button => {
+        button.classList.remove('bg-yellow-500', 'text-gray-900');
+        button.classList.add('bg-gray-800', 'text-white');
+        });
 
-                // Highlight the selected movie button
-                event.target.classList.remove('bg-gray-800', 'text-white');
-                event.target.classList.add('bg-yellow-500', 'text-gray-900');
+        // Highlight the selected movie button
+        event.target.classList.remove('bg-gray-800', 'text-white');
+        event.target.classList.add('bg-yellow-500', 'text-gray-900');
 
-                // Show cinema selection after movie selection
-                showSection('cinema-selection');
-            } else if (type === 'cinema') {
-                // Get all cinema buttons
-                const cinemaButtons = document.querySelectorAll('#cinema-selection button');
+        // Show cinema selection after movie selection
+        showSection('cinema-selection');
+        } else if (type === 'cinema') {
+        // Get all cinema buttons
+        const cinemaButtons = document.querySelectorAll('#cinema-selection button');
 
-                // Reset cinema buttons
-                cinemaButtons.forEach(button => {
-                    button.classList.remove('bg-yellow-500', 'text-gray-900');
-                    button.classList.add('bg-gray-800', 'text-white');
-                });
+        // Reset cinema buttons
+        cinemaButtons.forEach(button => {
+        button.classList.remove('bg-yellow-500', 'text-gray-900');
+        button.classList.add('bg-gray-800', 'text-white');
+        });
 
-                // Highlight the selected cinema button
-                event.target.classList.remove('bg-gray-800', 'text-white');
-                event.target.classList.add('bg-yellow-500', 'text-gray-900');
+        // Highlight the selected cinema button
+        event.target.classList.remove('bg-gray-800', 'text-white');
+        event.target.classList.add('bg-yellow-500', 'text-gray-900');
 
-                // Show time selection after cinema selection
-                showSection('time-selection');
-            } else if (type === 'time') {
-                // Get all time buttons
-                const timeButtons = document.querySelectorAll('#time-selection button');
+        // Show time selection after cinema selection
+        showSection('time-selection');
+        } else if (type === 'time') {
+        // Get all time buttons
+        const timeButtons = document.querySelectorAll('#time-selection button');
 
-                // Reset time buttons
-                timeButtons.forEach(button => {
-                    button.classList.remove('bg-yellow-500', 'text-gray-900');
-                    button.classList.add('bg-gray-800', 'text-white');
-                });
+        // Reset time buttons
+        timeButtons.forEach(button => {
+        button.classList.remove('bg-yellow-500', 'text-gray-900');
+        button.classList.add('bg-gray-800', 'text-white');
+        });
 
-                // Highlight the selected time button
-                event.target.classList.remove('bg-gray-800', 'text-white');
-                event.target.classList.add('bg-yellow-500', 'text-gray-900');
-            }
+        // Highlight the selected time button
+        event.target.classList.remove('bg-gray-800', 'text-white');
+        event.target.classList.add('bg-yellow-500', 'text-gray-900');
+        }
         }
 
         // Function to show the next selection section
         function showSection(sectionId) {
-            // Hide all sections
-            const sections = ['movie-selection', 'cinema-selection', 'time-selection'];
-            sections.forEach(section => {
-                document.getElementById(section).classList.add('hidden');
-            });
+        // Hide all sections
+        const sections = ['movie-selection', 'cinema-selection', 'time-selection'];
+        sections.forEach(section => {
+        document.getElementById(section).classList.add('hidden');
+        });
 
-            // Show the target section
-            document.getElementById(sectionId).classList.remove('hidden');
+        // Show the target section
+        document.getElementById(sectionId).classList.remove('hidden');
         }
 
         // Submit the selection form
         function submitSelection() {
-            document.getElementById("selection-form").submit();
+        document.getElementById("selection-form").submit();
         }
 
         // Initialize the page
         window.onload = function() {
-            // Hide all selection sections except date
-            const sections = ['movie-selection', 'cinema-selection', 'time-selection'];
-            sections.forEach(section => {
-                document.getElementById(section).classList.add('hidden');
-            });
+        // Hide all selection sections except date
+        const sections = ['movie-selection', 'cinema-selection', 'time-selection'];
+        sections.forEach(section => {
+        document.getElementById(section).classList.add('hidden');
+        });
         }
-    </script>
+        </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body class="bg-gray-900 text-gray-200">
@@ -117,14 +118,14 @@
         <span>Summary</span>
     </div>
 
-    <div class="mb-8">
+
         <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a date</h2>
         <div class="flex space-x-4">
             <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-yellow-500">Today</button>
             <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">Thu, 14 Nov</button>
             <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">Sat, 16 Nov</button>
             <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">Sun, 17 Nov</button>
-
+        </div>
     <!-- Selection Form -->
     <form id="selection-form" action="processSelection.jsp" method="POST">
         <!-- Hidden Inputs -->
@@ -150,15 +151,15 @@
                     }
                 %>
             </div>
->>>>>>> 298467dd5a39f02eb76155dc79a27d03f1b8f297
+
         </div>
 
-<<<<<<< HEAD
+
     <div class="flex justify-between">
         <button class="px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900">Previous</button>
         <button class="px-6 py-2 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-600">Next</button>
     </div>
-=======
+
         <!-- Movie Selection -->
         <div class="mb-8 hidden" id="movie-selection">
             <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Movie</h2>
@@ -212,7 +213,7 @@
                     onclick="submitSelection()">Confirm Selection</button>
         </div>
     </form>
->>>>>>> 298467dd5a39f02eb76155dc79a27d03f1b8f297
+
 </section>
 
 </body>

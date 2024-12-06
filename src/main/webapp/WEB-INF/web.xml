@@ -41,5 +41,15 @@
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>temp_SeatServlet</servlet-name>
+        <servlet-class>com.example.abccinemawebapp.temp_SeatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>temp_SeatServlet</servlet-name>
+        <url-pattern>/temp_SeatServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

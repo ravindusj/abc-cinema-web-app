@@ -5,22 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Cinema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // JavaScript to dynamically load the Poppins font
-        document.addEventListener("DOMContentLoaded", () => {
-            const link = document.createElement("link");
-            link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
-            link.rel = "stylesheet";
-            document.head.appendChild(link);
-
-            // Apply the font to the body tag
-            document.body.style.fontFamily = "'Poppins', sans-serif";
-        });
-    </script>
 </head>
-<body class="bg-gray-100 font-sans">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+<body class="bg-gray-100">
 
 <!-- Fixed Navbar Start -->
 <nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
@@ -31,7 +26,7 @@
         <!-- Navigation Links -->
         <ul class="flex items-center space-x-8">
             <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Home</a></li>
-            <li><a href="buyTickets.jsp" class="bg-sky-600 text-white font-normal text-sm px-4 py-2 rounded hover:bg-sky-800">Buy Tickets</a></li>
+            <li><a href="temp_buyTicket.jsp" class="bg-sky-600 text-white font-normal text-sm px-4 py-2 rounded hover:bg-sky-800">Buy Tickets</a></li>
             <li><a href="movies.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Movies</a></li>
             <li><a href="cinemas.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Cinemas</a></li>
             <li><a href="contactus.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Contact Us</a></li>
@@ -146,11 +141,11 @@
 
     <!-- Navigation Dots -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-        <button class="dot w-7 h-2 bg-cyan-600 rounded-l-lg"></button>
+        <button class="dot w-7 h-2 bg-cyan-600 rounded-sm"></button>
         <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
         <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
         <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
-        <button class="dot w-7 h-2 bg-slate-600 rounded-r-lg"></button>
+        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
     </div>
 </section>
 
