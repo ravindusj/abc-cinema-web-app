@@ -44,7 +44,7 @@
   while (rs.next()) {
   count++;
   %>
-  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md m-4 w-full cursor-pointer"
+  <div class="bg-gray-800 shadow-md m-4 w-full cursor-pointer"
        onclick="openModal('<%= rs.getString("title") %>',
                '<%= rs.getString("description").replace("'", "\\'") %>',
                '<%= rs.getString("cast").replace("'", "\\'") %>')">
@@ -76,7 +76,7 @@
 
 </div>
 
-<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center">
+<div id="modal" class="bg-black bg-opacity-50 hidden flex justify-center items-center">
   <div class="bg-gray-900 p-8 rounded-lg w-96">
     <h3 id="modal-title" class="text-xl font-semibold text-yellow-500 mb-4"></h3>
     <p id="modal-description" class="text-gray-400 mb-4 text-sm"></p>

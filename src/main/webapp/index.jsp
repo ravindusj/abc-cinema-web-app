@@ -17,13 +17,13 @@
 </style>
 <body class="bg-gray-100">
 
-<!-- Fixed Navbar Start -->
+
 <nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
     <div class="flex items-center justify-between max-w-7xl mx-auto w-full">
-        <!-- Logo -->
+
         <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
 
-        <!-- Navigation Links -->
+
         <ul class="flex items-center space-x-8">
             <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Home</a></li>
             <li><a href="temp_buyTicket.jsp" class="bg-sky-600 text-white font-normal text-sm px-4 py-2 rounded hover:bg-sky-800">Buy Tickets</a></li>
@@ -33,21 +33,21 @@
         </ul>
     </div>
 </nav>
-<!-- Fixed Navbar End -->
+
 
 <script>
     let lastScrollTop = 0;
     const navbar = document.getElementById('navbar');
 
-    // Function to handle navbar visibility based on scroll
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
         if (currentScroll > lastScrollTop) {
-            // Scroll down: hide navbar smoothly
+
             navbar.style.top = '-100px'; // Adjust this value based on your navbar height
         } else {
-            // Scroll up: show navbar smoothly and keep it centered
+
             navbar.style.top = '0.5rem'; // Keep it fixed at its original position
         }
 
@@ -55,130 +55,6 @@
     });
 </script>
 
-
-<!-- Hero Section -->
-<section class="relative w-full h-screen overflow-hidden bg-black">
-    <!-- Slideshow -->
-    <div id="slideshow" class="relative w-full h-full">
-        <!-- Slide 1 -->
-        <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100">
-            <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F111b45c9-1fdd-4e99-b3de-d60255302fa4.jpg?alt=media&token=c6194650-dae5-4b51-bb75-a563d5abd693" alt="Gladiator II" class="object-cover w-full h-full">
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="absolute bottom-16 left-10 space-y-4">
-                <h1 class="text-3xl font-bold text-white">அமரன் | Amaran</h1>
-                <p class="max-w-lg text-xs text-white">
-                    Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran who was martyred during action in the Qazipathri Operation of Shopian, on April 25th, 2014.
-                </p>
-                <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
-                    Buy Tickets
-                </button>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-            <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2Fb0a4fe69-377b-4660-b3cd-3e3c0adc6d79.jpg?alt=media&token=672cb0d3-bd5d-4f17-a8fc-d71e17ab9284" alt="Another Movie" class="object-cover w-full h-full">
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-            <div class="absolute bottom-16 left-10 space-y-4">
-                <h1 class="text-3xl font-bold text-white">මන්දාරා | Mandara</h1>
-                <p class="max-w-lg text-xs text-white">
-                    හසුරුවාගත නොහැකි තම කෝපාවේගයේ පිපුරුමට හසුවී සුන්නද්ධූලි කරගත් පෙම් සිහිනයේ අතරමංව අපේක්ෂා භංගත්වයට පත්වූ සිවිල් ඉන්ජිනේරු ”‍විශ්ව”‍ ගේ සහ පේ‍්‍රමයම පසුපස හඹාගොස් දිනනු නොහැකි වූ අති දක්ෂ ක‍්‍රීඩා තාරකාවක වන සුරූපී ”‍මන්දාරා”‍ ගේ දෙපසකට දිවෙන ජීවිත මාවත, තම කුරිරු මාමාගේ මරණ වරෙන්තුවෙන් ගැලවී වික‍්‍රමාන්විතව පලායන ”‍යශෝරා”‍ නම් අවිහිංසක අනාථ දැරියගේ ඉරණම හා පැටලෙන්නේ අහම්බෙනි.
-                </p>
-                <button  onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
-                    Buy Tickets
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2Fdada9e08-4d8b-40d6-bd69-6abd3202afaf.jpg?alt=media&token=7f48a338-eddc-4162-8c64-04298bad51ff" alt="Another Movie" class="object-cover w-full h-full">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-        <div class="absolute bottom-16 left-10 space-y-4">
-            <h1 class="text-3xl font-bold text-white">Red One</h1>
-            <p class="max-w-lg text-xs text-white">
-                After Santa Claus (code name: Red One) is kidnapped, the North Pole's Head of Security must team up with the world's most infamous bounty hunter in a globe-trotting, action-packed mission to save Christmas.
-            </p>
-            <button  onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
-                Buy Tickets
-            </button>
-        </div>
-    </div>
-
-
-    <!-- Slide 4 -->
-    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F34e19908-2d22-4ef1-ba31-3797d5b6f329.jpg?alt=media&token=fa451b7e-84b2-4b02-a455-43584495022b" alt="Another Movie" class="object-cover w-full h-full">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-        <div class="absolute bottom-16 left-10 space-y-4">
-            <h1 class="text-3xl font-bold text-white">Gladiator II</h1>
-            <p class="max-w-lg text-xs text-white">
-                A tale of courage and glory that reshaped the empire.
-            </p>
-            <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
-                Buy Tickets
-            </button>
-        </div>
-    </div>
-
-
-    <!-- Slide 5 -->
-    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
-        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F25966a42-b8aa-4477-95ad-37ef8c08274e.jpg?alt=media&token=e5a9df58-1b16-4c09-b981-4c6433d13ecf" alt="Another Movie" class="object-cover w-full h-full">
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-        <div class="absolute bottom-16 left-10 space-y-4">
-            <h1 class="text-3xl font-bold text-white">Venom: The Last Dance</h1>
-            <p class="max-w-lg text-xs text-white">
-                Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.
-            </p>
-            <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
-                Buy Tickets
-            </button>
-        </div>
-    </div>
-
-
-    <!-- Navigation Dots -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-        <button class="dot w-7 h-2 bg-cyan-600 rounded-sm"></button>
-        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
-        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
-        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
-        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
-    </div>
-</section>
-
-<script>
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
-        slides[index].classList.replace('opacity-0', 'opacity-100');
-
-        dots[currentSlide].classList.replace('bg-cyan-600', 'bg-slate-600');
-        dots[index].classList.replace('bg-slate-600', 'bg-cyan-600');
-
-        currentSlide = index;
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showSlide(index));
-    });
-
-    // Auto-slide every 5 seconds
-    setInterval(() => {
-        const nextSlide = (currentSlide + 1) % slides.length;
-        showSlide(nextSlide);
-    }, 3000);
-</script>
-
-
-
-
-<!-- Hero Section Start --
 <section>
     <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://designone.lk/wp-content/uploads/2021/09/1-3.jpg'); margin-top: 0;">
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -194,17 +70,14 @@
         </div>
     </div>
 </section>
- Hero Section End -->
 
-
-<!-- Film Grid Section Start -->
 <section class="bg-white py-20 px-6">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-10">Now Showing</h2>
 
-        <!-- Film Grid -->
+
         <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <!-- Film Card 1 -->
+
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 1" class="w-full h-60 object-cover">
                 <div class="p-4">
@@ -212,7 +85,7 @@
                     <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
-            <!-- Film Card 2 -->
+
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 2" class="w-full h-60 object-cover">
                 <div class="p-4">
@@ -220,7 +93,7 @@
                     <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
-            <!-- Film Card 3 -->
+
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 3" class="w-full h-60 object-cover">
                 <div class="p-4">
@@ -228,7 +101,7 @@
                     <p class="text-gray-700 text-sm mt-2">Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran</p>
                 </div>
             </div>
-            <!-- Film Card 4 -->
+
             <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden">
                 <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fposter%2F0aa4934b-3179-4268-ade0-1287445ea4d7.jpg?alt=media&token=781aeafa-48bb-402a-81f7-70bf56792b7e" alt="Film 4" class="w-full h-60 object-cover">
                 <div class="p-4">
@@ -296,7 +169,7 @@
         </div>
     </div>
 </section>
-<!-- Film Grid Section End -->
+
 
 <div class="flex justify-center items-center space-x-8 p-10">
     <!-- Card 1 -->
