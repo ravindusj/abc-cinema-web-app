@@ -35,14 +35,12 @@ public class ProcessPayment extends HttpServlet {
 
             Payment payment = createPayment(amountUSD, movieName);
 
-
             String approvalUrl = null;
             for (Links link : payment.getLinks()) {
                 if (link.getRel().equals("approval_url")) {
                     approvalUrl = link.getHref();
                 }
             }
-
 
             if (approvalUrl != null) {
                 response.sendRedirect(approvalUrl);
