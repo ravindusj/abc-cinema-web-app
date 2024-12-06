@@ -28,7 +28,7 @@ public class AddMovieServlet extends HttpServlet {
         String cast = request.getParameter("cast");
         String releaseDate = request.getParameter("releaseDate");
         String categories = request.getParameter("categories");
-        String filmLanguage = request.getParameter("filmLanguage");
+        String filmLanguage = request.getParameter("language");
 
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
@@ -49,19 +49,16 @@ public class AddMovieServlet extends HttpServlet {
             if (result > 0) {
                 out.println("<html><body>");
                 out.println("<h1>Movie Added Successfully!</h1>");
-                out.println("<p><a href='movies.jsp'>Go to Movie List</a></p>");
                 out.println("</body></html>");
             } else {
                 out.println("<html><body>");
-                out.println("<h1>Failed to Add Movie!</h1>");
-                out.println("<p><a href='addMovie.jsp'>Try Again</a></p>");
+                out.println("<p>Try Again</p>");
                 out.println("</body></html>");
             }
 
         } catch (SQLException e) {
             out.println("<html><body>");
-            out.println("<h1>Error: " + e.getMessage() + "</h1>");
-            out.println("<p><a href='addMovie.jsp'>Try Again</a></p>");
+            out.println("<p>Try Again</p>");
             out.println("</body></html>");
         }
     }

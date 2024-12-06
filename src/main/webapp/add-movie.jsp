@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+<div class="max-w-2xl mx-auto bg-white">
   <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Add Movie</h2>
 
   <form action="addMovieServlet" method="POST">

@@ -44,7 +44,7 @@
   while (rs.next()) {
   count++;
   %>
-  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md m-4 w-full cursor-pointer"
+  <div class="bg-gray-800 shadow-md m-4 w-full cursor-pointer"
        onclick="openModal('<%= rs.getString("title") %>',
                '<%= rs.getString("description").replace("'", "\\'") %>',
                '<%= rs.getString("cast").replace("'", "\\'") %>')">
