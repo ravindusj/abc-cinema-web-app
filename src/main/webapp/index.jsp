@@ -9,6 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const link = document.createElement("link");
+            link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
+            link.rel = "stylesheet";
+            document.head.appendChild(link);
+
+
+            document.body.style.fontFamily = "'Poppins', sans-serif";
+        });
+    </script>
+
+
 </head>
 <style>
     body {
@@ -16,6 +31,9 @@
     }
 </style>
 <body class="bg-gray-100">
+
+
+
 
 
 <nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
@@ -70,6 +88,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="bg-white py-20 px-6">
     <div class="max-w-7xl mx-auto">
@@ -171,6 +190,7 @@
 </section>
 
 
+
 <div class="flex justify-center items-center space-x-8 p-10">
     <!-- Card 1 -->
     <div class="bg-red-800 text-white p-6 rounded-lg shadow-lg w-64">
@@ -270,6 +290,7 @@
         </div>
     </div>
 </footer>
+
 
 
 </body>
