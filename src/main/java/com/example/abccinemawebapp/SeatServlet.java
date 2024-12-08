@@ -37,7 +37,7 @@ public class SeatServlet extends HttpServlet {
             request.setAttribute("childTickets", childTickets);
             request.setAttribute("totalCost", totalCost);
 
-            request.getRequestDispatcher("temp_summary.jsp").forward(request, response);
+            request.getRequestDispatcher("summary.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
             request.setAttribute("error", "Invalid number of tickets entered.");
