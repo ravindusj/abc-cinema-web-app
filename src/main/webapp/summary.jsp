@@ -39,7 +39,7 @@
     </a>
 
     <form action="ProcessPayment" method="post">
-      <input type="hidden" name="movieName" value="Gladiator II">
+      <input type="hidden" name="movieName" value="Film Name">
       <input type="hidden" name="totalCost" value="${totalCost}">
       <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
         Proceed to Payment
