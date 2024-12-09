@@ -11,7 +11,7 @@
   <h1 class="text-3xl font-bold mb-6 text-yellow-400">Booking Summary</h1>
 
   <div class="mb-4">
-    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300">Film name</span></h2>
+    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300">Film Name</span></h2>
     <p class="text-gray-400">Date: <span class="text-white">04-12-2024</span></p>
     <p class="text-gray-400">Time: <span class="text-white">3:45 PM</span></p>
   </div>
