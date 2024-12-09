@@ -16,24 +16,26 @@ import java.util.List;
 @WebServlet("/ProcessPayment")
 public class ProcessPayment extends HttpServlet {
 
-    private static final String CLIENT_ID = "AdXAiqy1nsBoA5WxABbyyb0S9cRP6zLaj7twYqjLyPFRUV-YeqUVcfe2CLFEGcaHXZlJojwi83_uolAH";  // Replace with your PayPal Client ID
-    private static final String CLIENT_SECRET = "ENDaztRreRFoudncMxKnvgGdCgxO2jabwgaBQLVelND9o0lP9rOXrjjj1BUV2PvRs76k5m_tYP6j2SSF";  // Replace with your PayPal Client Secret
-    private static final String MODE = "sandbox"; 
+    private static final String CLIENT_ID = "AdXAiqy1nsBoA5WxABbyyb0S9cRP6zLaj7twYqjLyPFRUV-YeqUVcfe2CLFEGcaHXZlJojwi83_uolAH";
+    private static final String CLIENT_SECRET = "ENDaztRreRFoudncMxKnvgGdCgxO2jabwgaBQLVelND9o0lP9rOXrjjj1BUV2PvRs76k5m_tYP6j2SSF";
+    private static final String MODE = "sandbox";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-
+        // Retrieve form parameters
         String movieName = request.getParameter("movieName");
         String totalCostStr = request.getParameter("totalCost");
 
         try {
             double totalCost = Double.parseDouble(totalCostStr);
 
-            double amountUSD = totalCost * 0.0033; 
+            double amountUSD = totalCost * 0.0033;
+
 
             Payment payment = createPayment(amountUSD, movieName);
+
 
             String approvalUrl = null;
             for (Links link : payment.getLinks()) {
@@ -41,6 +43,7 @@ public class ProcessPayment extends HttpServlet {
                     approvalUrl = link.getHref();
                 }
             }
+
 
             if (approvalUrl != null) {
                 response.sendRedirect(approvalUrl);
@@ -57,6 +60,7 @@ public class ProcessPayment extends HttpServlet {
     private Payment createPayment(double amount, String movieName) throws PayPalRESTException {
 
         APIContext apiContext = new APIContext(CLIENT_ID, CLIENT_SECRET, MODE);
+
 
         Amount totalAmount = new Amount();
         totalAmount.setCurrency("USD");
@@ -75,8 +79,8 @@ public class ProcessPayment extends HttpServlet {
 
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setReturnUrl("");
-        redirectUrls.setCancelUrl("");
+        redirectUrls.setReturnUrl("http://yourwebsite.com/payment-success");
+        redirectUrls.setCancelUrl("http://yourwebsite.com/payment-cancel");
         payment.setRedirectUrls(redirectUrls);
 
 

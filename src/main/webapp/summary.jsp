@@ -19,18 +19,18 @@
   <div class="mb-4">
     <p class="mb-2"><strong>Selected Seats:</strong></p>
     <div class="flex flex-wrap justify-center gap-2">
-      <span class="bg-yellow-500 text-black px-3 py-1 rounded-lg">A1, A2</span>
+      <span class="bg-yellow-500 text-black px-3 py-1 rounded-lg">${selectedSeats}</span>
     </div>
   </div>
 
   <div class="mb-4">
-    <p><strong>Adult Tickets:</strong> 2</p>
-    <p><strong>Child Tickets:</strong> 1</p>
+    <p><strong>Adult Tickets:</strong> ${adultTickets}</p>
+    <p><strong>Child Tickets:</strong> ${childTickets}</p>
   </div>
 
   <div class="bg-gray-700 p-4 rounded-lg">
     <p class="text-xl font-bold text-yellow-400">Total Cost:</p>
-    <p class="text-2xl font-medium">5500 LKR</p>
+    <p class="text-2xl font-medium"> ${totalCost}LKR</p>
   </div>
 
   <div class="mt-6 flex justify-center gap-4">
@@ -40,7 +40,7 @@
 
     <form action="ProcessPayment" method="post">
       <input type="hidden" name="movieName" value="Gladiator II">
-      <input type="hidden" name="totalCost" value="5500">
+      <input type="hidden" name="totalCost" value="${totalCost}">
       <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
         Proceed to Payment
       </button>

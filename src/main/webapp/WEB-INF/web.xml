@@ -10,15 +10,6 @@
     </welcome-file-list>
 
     <!-- Servlet Configuration for HelloServlet -->
-    <servlet>
-        <servlet-name>helloServlet</servlet-name>
-        <servlet-class>com.example.abccinemawebapp.HelloServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>helloServlet</servlet-name>
-        <url-pattern>/hello-servlet</url-pattern>
-    </servlet-mapping>
 
     <!-- Servlet Configuration for AddMovieServlet -->
     <servlet>
@@ -32,24 +23,6 @@
     </servlet-mapping>
 
 
-
-    <servlet>
-        <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>com.example.HelloWorldServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>temp_SeatServlet</servlet-name>
-        <servlet-class>com.example.abccinemawebapp.temp_SeatServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>temp_SeatServlet</servlet-name>
-        <url-pattern>/temp_SeatServlet</url-pattern>
-    </servlet-mapping>
 
 </web-app>
 
