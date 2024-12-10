@@ -73,21 +73,94 @@
     });
 </script>
 
-<section>
-    <div class="relative h-screen bg-cover bg-center" style="background-image: url('https://designone.lk/wp-content/uploads/2021/09/1-3.jpg'); margin-top: 0;">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
+<section class="relative w-full h-screen overflow-hidden bg-black">
 
-        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-            <h1 class="text-4xl md:text-6xl font-normal">Welcome to ABC Cinema</h1>
-            <p class="mt-4 text-lg md:text-xl max-w-2xl">
-                Experience the best movies in town with high-quality sound and visuals. Book your tickets now!
-            </p>
-            <a href="buyTickets.jsp" class="mt-8 bg-sky-600 hover:bg-sky-800 text-white font-normal px-6 py-3 rounded text-lg">
-                Buy Tickets Now!
-            </a>
+    <div id="slideshow" class="relative w-full h-full">
+
+        <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F111b45c9-1fdd-4e99-b3de-d60255302fa4.jpg?alt=media&token=c6194650-dae5-4b51-bb75-a563d5abd693" alt="Gladiator II" class="object-cover w-full h-full">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="absolute bottom-16 left-10 space-y-4">
+                <h1 class="text-3xl font-bold text-white">அமரன் | Amaran</h1>
+                <p class="max-w-lg text-xs text-white">
+                    Amaran is a biopic that follows the personal and professional life of AC awardee Major Mukund Varadarajran who was martyred during action in the Qazipathri Operation of Shopian, on April 25th, 2014.
+                </p>
+                <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
+                    Buy Tickets
+                </button>
+            </div>
+        </div>
+
+        <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2Fb0a4fe69-377b-4660-b3cd-3e3c0adc6d79.jpg?alt=media&token=672cb0d3-bd5d-4f17-a8fc-d71e17ab9284" alt="Another Movie" class="object-cover w-full h-full">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+            <div class="absolute bottom-16 left-10 space-y-4">
+                <h1 class="text-3xl font-bold text-white">මන්දාරා | Mandara</h1>
+                <p class="max-w-lg text-xs text-white">
+                    හසුරුවාගත නොහැකි තම කෝපාවේගයේ පිපුරුමට හසුවී සුන්නද්ධූලි කරගත් පෙම් සිහිනයේ අතරමංව අපේක්ෂා භංගත්වයට පත්වූ සිවිල් ඉන්ජිනේරු ”‍විශ්ව”‍ ගේ සහ පේ‍්‍රමයම පසුපස හඹාගොස් දිනනු නොහැකි වූ අති දක්ෂ ක‍්‍රීඩා තාරකාවක වන සුරූපී ”‍මන්දාරා”‍ ගේ දෙපසකට දිවෙන ජීවිත මාවත, තම කුරිරු මාමාගේ මරණ වරෙන්තුවෙන් ගැලවී වික‍්‍රමාන්විතව පලායන ”‍යශෝරා”‍ නම් අවිහිංසක අනාථ දැරියගේ ඉරණම හා පැටලෙන්නේ අහම්බෙනි.
+                </p>
+                <button  onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
+                    Buy Tickets
+                </button>
+            </div>
         </div>
     </div>
+
+
+    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2Fdada9e08-4d8b-40d6-bd69-6abd3202afaf.jpg?alt=media&token=7f48a338-eddc-4162-8c64-04298bad51ff" alt="Another Movie" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <div class="absolute bottom-16 left-10 space-y-4">
+            <h1 class="text-3xl font-bold text-white">Red One</h1>
+            <p class="max-w-lg text-xs text-white">
+                After Santa Claus (code name: Red One) is kidnapped, the North Pole's Head of Security must team up with the world's most infamous bounty hunter in a globe-trotting, action-packed mission to save Christmas.
+            </p>
+            <button  onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
+                Buy Tickets
+            </button>
+        </div>
+    </div>
+
+
+    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F34e19908-2d22-4ef1-ba31-3797d5b6f329.jpg?alt=media&token=fa451b7e-84b2-4b02-a455-43584495022b" alt="Another Movie" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <div class="absolute bottom-16 left-10 space-y-4">
+            <h1 class="text-3xl font-bold text-white">Gladiator II</h1>
+            <p class="max-w-lg text-xs text-white">
+                A tale of courage and glory that reshaped the empire.
+            </p>
+            <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
+                Buy Tickets
+            </button>
+        </div>
+    </div>
+
+
+    <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kandy-city-centre.appspot.com/o/public%2Fmovies%2Fbackdrop%2F25966a42-b8aa-4477-95ad-37ef8c08274e.jpg?alt=media&token=e5a9df58-1b16-4c09-b981-4c6433d13ecf" alt="Another Movie" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <div class="absolute bottom-16 left-10 space-y-4">
+            <h1 class="text-3xl font-bold text-white">Venom: The Last Dance</h1>
+            <p class="max-w-lg text-xs text-white">
+                Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.
+            </p>
+            <button onclick="window.location.href='buyTickets.jsp'" class="px-6 py-2 bg-sky-600 text-black font-semibold rounded hover:bg-yellow-600">
+                Buy Tickets
+            </button>
+        </div>
+    </div>
+
+
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <button class="dot w-7 h-2 bg-cyan-600 rounded-sm"></button>
+        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
+        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
+        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
+        <button class="dot w-7 h-2 bg-slate-600 rounded-sm"></button>
+    </div>
 </section>
+
 
 
 <section class="bg-white py-20 px-6">
