@@ -11,21 +11,21 @@
   <h1 class="text-3xl font-bold mb-6 text-yellow-400">Booking Summary</h1>
 
   <div class="mb-4">
-    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300">Film Name :</span></h2>
-    <p class="text-gray-400">Date: <span class="text-white">Selected Date :</span></p>
-    <p class="text-gray-400">Time: <span class="text-white">Selected Time</span></p>
+    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300">Gladiator II</span></h2>
+    <p class="text-gray-400">Date: <span class="text-white">04-12-2024</span></p>
+    <p class="text-gray-400">Time: <span class="text-white">3:45 PM</span></p>
   </div>
 
   <div class="mb-4">
     <p class="mb-2"><strong>Selected Seats:</strong></p>
     <div class="flex flex-wrap justify-center gap-2">
-      <span class="bg-yellow-500 text-black px-3 py-1 rounded-lg">${selectedSeats}</span>
+      <span class="bg-yellow-500 text-black px-3 py-1 rounded-lg"> ${selectedSeats}</span>
     </div>
   </div>
 
   <div class="mb-4">
-    <p><strong>Adult Tickets:</strong> ${adultTickets}</p>
-    <p><strong>Child Tickets:</strong> ${childTickets}</p>
+    <p><strong>Adult Tickets:</strong>${adultTickets}</p>
+    <p><strong>Child Tickets:</strong>${childTickets}</p>
   </div>
 
   <div class="bg-gray-700 p-4 rounded-lg">
@@ -39,7 +39,7 @@
     </a>
 
     <form action="ProcessPayment" method="post">
-      <input type="hidden" name="movieName" value="Film Name">
+      <input type="hidden" name="movieName" value="Gladiator II">
       <input type="hidden" name="totalCost" value="${totalCost}">
       <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
         Proceed to Payment
