@@ -8,15 +8,15 @@ import jakarta.servlet.annotation.*;
 @WebServlet(name = "addMovieServlet", value = "/addMovieServlet")
 public class AddMovieServlet extends HttpServlet {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/nowshowing";
+    private static final String DB_URL = "jdbc:mariadb://localhost:3306/nowshowing";
     private static final String DB_USERNAME = "user";
     private static final String DB_PASSWORD = "user";
 
-    private static final String INSERT_MOVIE_SQL = "INSERT INTO films (title, description, image_url, cast, release_date, categories, film_language) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_MOVIE_SQL = "INSERT INTO films (title, description, imageUrl, cast, releaseDate, categories, language) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName("org.mariadb.jdbc.Driver").newInstance();
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to load JDBC driver: " + ex.getMessage());
             return;

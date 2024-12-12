@@ -73,6 +73,8 @@
     });
 </script>
 
+
+
 <section class="relative w-full h-screen overflow-hidden bg-black">
 
     <div id="slideshow" class="relative w-full h-full">
@@ -260,6 +262,28 @@
 
         </div>
     </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        function showSlide(index) {
+            slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+            slides[index].classList.replace('opacity-0', 'opacity-100');
+            dots[currentSlide].classList.replace('bg-cyan-600', 'bg-slate-600');
+            dots[index].classList.replace('bg-slate-600', 'bg-cyan-600');
+            currentSlide = index;
+        }
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            const nextSlide = (currentSlide + 1) % slides.length;
+            showSlide(nextSlide);
+        }, 1000);
+    </script>
+
 </section>
 
 

@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="jakarta.servlet.http.Cookie" %>
+<%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <html>
 <head>
     <title>Movie Seat Booking</title>
@@ -62,7 +65,7 @@
             String bookedSeatsText = "None";
 try {
 Class.forName("org.mariadb.jdbc.Driver");
-    Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/seats", "user", "user");
+    Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/nowshowing", "user", "user");
     PreparedStatement pst = conn.prepareStatement("SELECT booked_seats FROM bookings WHERE movie_name = ?");
     pst.setString(1, "Gladiator II");
     ResultSet rs = pst.executeQuery();
@@ -92,11 +95,46 @@ catch (Exception e) {
     </script>
 </head>
 <body>
+<%
+    // Retrieve cookie values
+    Cookie[] cookies = request.getCookies();
+    String selectedDate = "";
+    String selectedMovie = "";
+    String selectedCinema = "";
+    String selectedTime = "";
+    String userName = "";
+    String userEmail = "";
+
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            switch (cookie.getName()) {
+                case "selectedDate":
+                    selectedDate = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+                case "selectedMovie":
+                    selectedMovie = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+                case "selectedCinema":
+                    selectedCinema = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+                case "selectedTime":
+                    selectedTime = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+                case "userName":
+                    userName = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+                case "userEmail":
+                    userEmail = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    break;
+            }
+        }
+    }
+%>
 <div class="bg-black text-white min-h-screen flex flex-col items-center p-6 pt-10">
     <h1 class="text-2xl font-bold mb-4">Pick a Seat</h1>
     <div class="mb-4 text-center">
-        <h2 class="text-xl font-semibold">Gladiator II</h2>
-        <p>C2 - 04-12-2024 - Wednesday at 3:45 PM</p>
+        <h2 class="text-xl font-semibold"><%= selectedMovie %></h2>
+        <p><%= selectedCinema %> - <%= selectedDate %> - <%= selectedTime %></p>
     </div>
 
     <div class="pt-6 mb-6 w-3/5">

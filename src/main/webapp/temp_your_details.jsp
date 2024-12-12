@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script>
-        // Function to validate if all fields are filled
         function validateForm() {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
@@ -19,11 +18,19 @@
             if (name && email && phone) {
                 nextButton.disabled = false;
                 nextButton.title = "";  // Clear the tooltip if enabled
+
+                // Set cookies for user details
+                document.cookie = "userName=" + encodeURIComponent(name) + "; path=/";
+                document.cookie = "userEmail=" + encodeURIComponent(email) + "; path=/";
             } else {
                 nextButton.disabled = true;
                 nextButton.title = "Please fill all the required fields to proceed";  // Tooltip text
             }
         }
+
+        document.getElementById("nextButton").onclick = function() {
+            window.location.href = 'temp_pick_a_seat.jsp';
+        };
     </script>
 </head>
 <style>
@@ -73,19 +80,19 @@
 <body class="bg-gray-900 text-gray-200 font-poppins">
 <div class="container mx-auto max-w-4xl px-4 py-8">
 
-        <h1 class="text-3xl font-bold text-center mb-8 text-yellow-500">Buy Movie Tickets</h1>
+    <h1 class="text-3xl font-bold text-center mb-8 text-yellow-500">Buy Movie Tickets</h1>
 
-        <!-- Navigation Section -->
-        <div class="flex justify-between items-center mb-10 text-gray-400 space-x-4 w-full">
+    <!-- Navigation Section -->
+    <div class="flex justify-between items-center mb-10 text-gray-400 space-x-4 w-full">
 
-                <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_buyTicket.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Movie</a>
-                <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_your_details.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Your Details</a>
-                <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_pick_a_seat.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Seat</a>
-                <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_summary.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Summary</a>
+        <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_buyTicket.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Movie</a>
+        <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_your_details.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Your Details</a>
+        <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_pick_a_seat.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Seat</a>
+        <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_summary.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Summary</a>
 
-        </div>
+    </div>
 
-        <!-- Form Section -->
+    <!-- Form Section -->
     <div class="flex justify-center">
         <form class="flex flex-col gap-9 w-2/4" oninput="validateForm()">
             <div>
@@ -110,20 +117,22 @@
             </div>
         </form>
     </div>
-        <!-- Navigation Buttons -->
-        <div class="flex justify-between space-x-4 pt-9">
-            <button type="button" onclick="window.location.href='temp_buyTicket.jsp'"
-                    class="flex-1 px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300">
-                Previous
-            </button>
-            <!-- Next button initially disabled -->
-            <button type="button" id="nextButton" onclick="window.location.href='temp_pick_a_seat.jsp'"
-                    class="flex-1 px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300"
-                    disabled>
-                Next
-            </button>
-        </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between space-x-4 pt-9">
+        <button type="button" onclick="window.location.href='temp_buyTicket.jsp'"
+                class="flex-1 px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300">
+            Previous
+        </button>
+        <!-- Next button initially disabled -->
+        <button type="button" id="nextButton" onclick="window.location.href='temp_pick_a_seat.jsp'"
+                class="flex-1 px-6 py-2 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300"
+                disabled>
+            Next
+        </button>
     </div>
+</div>
+
 
 </body>
 </html>

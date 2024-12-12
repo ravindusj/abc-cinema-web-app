@@ -8,21 +8,18 @@
         // Function to toggle selection of options
         function selectOption(type, value, event) {
             const inputElement = document.getElementById(type + "-input");
-            const displayElement = document.getElementById(type + "-display");
             const currentValue = inputElement.value;
 
             // If the selected value is the same as the current one, deselect it
             if (currentValue === value) {
                 inputElement.value = ""; // Clear the hidden input value
-                displayElement.innerText = "Not Selected"; // Reset the display text
 
                 // Reset button styles
                 event.target.classList.remove('bg-yellow-500', 'text-gray-900');
                 event.target.classList.add('bg-gray-800', 'text-white');
             } else {
-                // Update the hidden input value and display text
+                // Update the hidden input value
                 inputElement.value = value;
-                displayElement.innerText = value;
 
                 // Reset all buttons in the current section
                 const buttons = document.querySelectorAll(`#${type}-selection button`);
@@ -39,9 +36,25 @@
             // Check if all selections are made and enable/disable the Next button
             updateNextButtonStatus();
         }
+        //Cookie function
+        function setCookie(name, value) {
+            document.cookie = name + "=" + encodeURIComponent(value) + "; path=/";
+        }
+
         function validateAndRedirect() {
-            // Perform validation logic here
-            // If validation passes, redirect to the next page
+            // Get selected values
+            const date = document.getElementById("date-input").value;
+            const movie = document.getElementById("movie-input").value;
+            const cinema = document.getElementById("cinema-input").value;
+            const time = document.getElementById("time-input").value;
+
+            // Set cookies for each selection
+            setCookie("selectedDate", date);
+            setCookie("selectedMovie", movie);
+            setCookie("selectedCinema", cinema);
+            setCookie("selectedTime", time);
+
+            // Redirect to next page
             window.location.href = 'temp_your_details.jsp';
         }
 
@@ -114,104 +127,95 @@
 <body class="bg-gray-900 text-gray-200 font-poppins">
 <div class="container mx-auto max-w-4xl px-4 py-8">
 
-        <section class="max-w-4xl mx-auto pt-9 px-4">
-            <h1 class="text-3xl font-bold text-center mb-8">Buy Tickets</h1>
+    <section class="max-w-4xl mx-auto pt-9 px-4">
+        <h1 class="text-3xl font-bold text-center mb-8">Buy Tickets</h1>
 
-            <!-- Navigation Links -->
-            <div class="flex justify-between items-center mb-10 text-gray-400 space-x-4 w-full pt-1">
+        <!-- Navigation Links -->
+        <div class="flex justify-between items-center mb-10 text-gray-400 space-x-4 w-full pt-1">
 
-                    <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_buyTicket.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Movie</a>
-                    <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_your_details.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Your Details</a>
-                    <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_pick_a_seat.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Seat</a>
-                    <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_summary.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Summary</a>
+            <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_buyTicket.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Movie</a>
+            <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_your_details.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Your Details</a>
+            <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("temp_pick_a_seat.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Pick a Seat</a>
+            <a href="#" class="text-yellow-500 font-semibold flex-grow text-center <% if(request.getRequestURI().contains("summary.jsp")) { %> text-gray-900 border-b-2 border-yellow-500 <% } %>">Summary</a>
 
+        </div>
+
+        <!-- Selection Form -->
+        <form id="selection-form" action="processSelection.jsp" method="POST">
+            <!-- Hidden Inputs -->
+            <input type="hidden" id="date-input" name="selectedDate">
+            <input type="hidden" id="movie-input" name="selectedMovie">
+            <input type="hidden" id="cinema-input" name="selectedCinema">
+            <input type="hidden" id="time-input" name="selectedTime">
+
+            <!-- Date Selection -->
+            <div class="mb-8" id="date-selection">
+                <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Date</h2>
+                <div class="flex space-x-4">
+                    <%
+                        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("EEE, dd MMM");
+                        java.util.Calendar cal = java.util.Calendar.getInstance();
+                        for (int i = 0; i < 4; i++) {
+                            String date = sdf.format(cal.getTime());
+                    %>
+                    <button type="button" class="input px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('date', '<%= date %>', event)"><%= date %></button>
+                    <%
+                            cal.add(java.util.Calendar.DATE, 1);
+                        }
+                    %>
+                </div>
             </div>
 
-            <!-- Selection Form -->
-            <form id="selection-form" action="processSelection.jsp" method="POST">
-                <!-- Hidden Inputs -->
-                <input type="hidden" id="date-input" name="selectedDate">
-                <input type="hidden" id="movie-input" name="selectedMovie">
-                <input type="hidden" id="cinema-input" name="selectedCinema">
-                <input type="hidden" id="time-input" name="selectedTime">
-
-                <!-- Date Selection -->
-                <div class="mb-8" id="date-selection">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Date</h2>
-                    <div class="flex space-x-4">
-                        <%
-                            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("EEE, dd MMM");
-                            java.util.Calendar cal = java.util.Calendar.getInstance();
-                            for (int i = 0; i < 4; i++) {
-                                String date = sdf.format(cal.getTime());
-                        %>
-                        <button type="button" class="input px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('date', '<%= date %>', event)"><%= date %></button>
-                        <%
-                                cal.add(java.util.Calendar.DATE, 1);
-                            }
-                        %>
-                    </div>
+            <!-- Movie Selection -->
+            <div class="mb-8" id="movie-selection">
+                <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Movie</h2>
+                <div class="flex space-x-4">
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('movie', 'Movie 1', event)">Movie 1</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('movie', 'Movie 2', event)">Movie 2</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('movie', 'Movie 3', event)">Movie 3</button>
                 </div>
+            </div>
 
-                <!-- Movie Selection -->
-                <div class="mb-8" id="movie-selection">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Movie</h2>
-                    <div class="flex space-x-4">
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('movie', 'Movie 1', event)">Movie 1</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('movie', 'Movie 2', event)">Movie 2</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('movie', 'Movie 3', event)">Movie 3</button>
-                    </div>
+            <!-- Cinema Hall Selection -->
+            <div class="mb-8" id="cinema-selection">
+                <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Cinema Hall</h2>
+                <div class="flex space-x-4">
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('cinema', 'Hall 1', event)">Hall 1</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('cinema', 'Hall 2', event)">Hall 2</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('cinema', 'Hall 3', event)">Hall 3</button>
                 </div>
+            </div>
 
-                <!-- Cinema Hall Selection -->
-                <div class="mb-8" id="cinema-selection">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Cinema Hall</h2>
-                    <div class="flex space-x-4">
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('cinema', 'Hall 1', event)">Hall 1</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('cinema', 'Hall 2', event)">Hall 2</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('cinema', 'Hall 3', event)">Hall 3</button>
-                    </div>
+            <!-- Time Selection -->
+            <div class="mb-8" id="time-selection">
+                <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Time</h2>
+                <div class="flex space-x-4">
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('time', '10:00 AM', event)">10:00 AM</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('time', '2:00 PM', event)">2:00 PM</button>
+                    <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+                            onclick="selectOption('time', '6:00 PM', event)">6:00 PM</button>
                 </div>
+            </div>
 
-                <!-- Time Selection -->
-                <div class="mb-8" id="time-selection">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-4">Select a Time</h2>
-                    <div class="flex space-x-4">
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('time', '10:00 AM', event)">10:00 AM</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('time', '2:00 PM', event)">2:00 PM</button>
-                        <button type="button" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
-                                onclick="selectOption('time', '6:00 PM', event)">6:00 PM</button>
-                    </div>
-                </div>
-
-                <!-- Display Selection -->
-                <div class="mb-8">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-4">Your Selection</h2>
-                    <p>Date: <span id="date-display" class="text-yellow-500">Not Selected</span></p>
-                    <p>Movie: <span id="movie-display" class="text-yellow-500">Not Selected</span></p>
-                    <p>Cinema Hall: <span id="cinema-display" class="text-yellow-500">Not Selected</span></p>
-                    <p>Time: <span id="time-display" class="text-yellow-500">Not Selected</span></p>
-                </div>
-
-                <!-- Form Buttons -->
-                <div class="flex justify-center" style="width:50%; margin:auto">
+            <!-- Form Buttons -->
+            <div class="flex justify-center" style="width:50%; margin:auto">
                 <button type="button" id="next-button" onclick="validateAndRedirect()"
-                            class="flex-1 px-6 py-2 w-2/4 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300">
-                        Next
+                        class="flex-1 px-6 py-2 w-2/4 text-yellow-500 border border-yellow-500 rounded-lg hover:bg-yellow-500 hover:text-gray-900 transition duration-300">
+                    Next
                 </button>
-                </div>
+            </div>
 
-            </form>
-        </section>
+        </form>
+    </section>
 
 </div>
 </body>

@@ -1,3 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="jakarta.servlet.http.Cookie" %>
+<%@ page import="jakarta.servlet.http.HttpServletRequest" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +12,55 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
+<%
+  // Retrieve cookie values
+  Cookie[] cookies = request.getCookies();
+  String selectedDate = "";
+  String selectedMovie = "";
+  String selectedCinema = "";
+  String selectedTime = "";
+  String userName = "";
+  String userEmail = "";
+
+  if (cookies != null) {
+    for (Cookie cookie : cookies) {
+      switch (cookie.getName()) {
+        case "selectedDate":
+          selectedDate = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+        case "selectedMovie":
+          selectedMovie = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+        case "selectedCinema":
+          selectedCinema = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+        case "selectedTime":
+          selectedTime = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+        case "userName":
+          userName = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+        case "userEmail":
+          userEmail = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+      }
+    }
+  }
+%>
 <div class="bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-md text-center">
   <h1 class="text-3xl font-bold mb-6 text-yellow-400">Booking Summary</h1>
 
   <div class="mb-4">
-    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300">Gladiator II</span></h2>
-    <p class="text-gray-400">Date: <span class="text-white">04-12-2024</span></p>
-    <p class="text-gray-400">Time: <span class="text-white">3:45 PM</span></p>
+    <h2 class="text-xl font-semibold mb-2">Movie: <span class="text-yellow-300"><%= selectedMovie %></span></h2>
+    <p class="text-gray-400">Date: <span class="text-white"><%= selectedDate %></span></p>
+    <p class="text-gray-400">Time: <span class="text-white"><%= selectedTime %></span></p>
+    <p class="text-gray-400">Cinema Hall: <span class="text-white"><%= selectedCinema %></span></p>
+  </div>
+
+  <div class="mb-4">
+    <h2 class="text-xl font-semibold mb-2">Customer Details</h2>
+    <p class="text-gray-400">Name: <span class="text-white"><%= userName %></span></p>
+    <p class="text-gray-400">Email: <span class="text-white"><%= userEmail %></span></p>
   </div>
 
   <div class="mb-4">
@@ -34,12 +81,12 @@
   </div>
 
   <div class="mt-6 flex justify-center gap-4">
-    <a href="pick_a_seat.jsp" class="bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400">
+    <a href="temp_pick_a_seat.jsp" class="bg-yellow-500 text-black px-4 py-2 rounded-lg hover:bg-yellow-400">
       Back to Seat Selection
     </a>
 
     <form action="ProcessPayment" method="post">
-      <input type="hidden" name="movieName" value="Gladiator II">
+      <input type="hidden" name="movieName" value="<%= selectedMovie %>">
       <input type="hidden" name="totalCost" value="${totalCost}">
       <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-400">
         Proceed to Payment

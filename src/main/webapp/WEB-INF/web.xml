@@ -9,9 +9,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <!-- Servlet Configuration for HelloServlet -->
-
-    <!-- Servlet Configuration for AddMovieServlet -->
     <servlet>
         <servlet-name>addMovieServlet</servlet-name>
         <servlet-class>com.example.abccinemawebapp.AddMovieServlet</servlet-class>

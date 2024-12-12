@@ -4,61 +4,23 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Contact Us - KCC Multiplex</title>
   <style>
-
-
-    form {
-      width: 36vw;
+    body {
+      background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
     }
 
-    form label {
-      font-size: 14px;
-      margin-bottom: 5px;
-      color: #bbb;
+    input::placeholder, textarea::placeholder {
+      color: #b3b3b3;
+      opacity: 1; /* Ensures placeholder text remains visible */
     }
 
-    form input, form select, form textarea {
-      padding: 12px;
-      border: 1px solid #333;
-      border-radius: 6px;
-      background-color: #2c2c2c;
-      color: #fff;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-
-    form input:focus, form select:focus, form textarea:focus {
-      border-color: #f39c12;
-      outline: none;
-      background-color: #333;
-      box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
-    }
-
-    form textarea {
-      resize: none;
-      grid-column: span 2;
-    }
-
-    form button {
-      grid-column: span 2;
-      padding: 12px 20px;
-      background-color: #f39c12;
-      border: none;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #e67e22;
-      box-shadow: 0 4px 15px rgba(230, 126, 34, 0.5);
+    input, textarea, select {
+      background-color: transparent; /* Makes the input boxes and dropdown transparent */
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
-
+<body class="text-white bg-black bg-opacity-75">
 
 <!-- Fixed Navbar Start -->
 <nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
@@ -88,46 +50,41 @@
 
     if (currentScroll > lastScrollTop) {
       // Scroll down: hide navbar smoothly
-      navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+      navbar.style.top = '-100px';
     } else {
       // Scroll up: show navbar smoothly and keep it centered
-      navbar.style.top = '0.5rem'; // Keep it fixed at its original position
+      navbar.style.top = '0.5rem';
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
 
-
-<div class="flex flex-col justify-center items-center min-h-screen">
+<div class="flex flex-col justify-center items-center min-h-screen bg-black bg-opacity-50">
   <div>
-  <h1 class="text-4xl text-center font-bold">Contact Us</h1>
-  <p class="text-sm pt-9 text-center" style="width: 699px; margin: auto;">Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
+    <h1 class="text-4xl text-center font-bold">Contact Us</h1>
+    <p class="text-sm pt-9 text-center w-[699px] mx-auto">Whether you are a movie distributor, an aspiring producer, or simply providing feedback on your experience, we’d love to hear from you.</p>
   </div>
-  <form class="pt-9"action="https://docs.google.com/forms/d/e/1FAIpQLSdnsppeqstxB8uUSpPZ5FWLawhI2lO6N9j0ZI9dwG_ZbZReeA/formResponse" method="post">
+  <form class="pt-9 w-[36vw] grid grid-cols-2 gap-4" action="https://docs.google.com/forms/d/e/1FAIpQLSdnsppeqstxB8uUSpPZ5FWLawhI2lO6N9j0ZI9dwG_ZbZReeA/formResponse" method="post">
 
-
-    <div class="flex items-center justify-between" style="gap: 9px">
-    <div class="flex flex-col w-full">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="entry.1302254668" placeholder="Enter your full name" required>
+    <div class="flex flex-col col-span-1">
+      <label for="name" class="text-sm text-gray-400 mb-1">Name</label>
+      <input type="text" id="name" name="entry.1302254668" placeholder="Enter your full name" class="p-3 border border-gray-700 rounded-md text-white text-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none" required>
     </div>
 
-        <div class="flex flex-col w-full">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="entry.1691193182" placeholder="Enter your email" required>
-    </div>
-    </div>
-
-    <div class="flex items-center pt-9 justify-between" style="gap: 9px">
-    <div class="flex flex-col w-full">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="entry.1012497427" placeholder="Enter your phone number" required>
+    <div class="flex flex-col col-span-1">
+      <label for="email" class="text-sm text-gray-400 mb-1">Email</label>
+      <input type="email" id="email" name="entry.1691193182" placeholder="Enter your email" class="p-3 border border-gray-700 rounded-md text-white text-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none" required>
     </div>
 
-    <div class="flex flex-col w-full">
-      <label for="subject">Select Your Subject</label>
-      <select id="subject" name="entry.1565475192" required>
+    <div class="flex flex-col col-span-1">
+      <label for="phone" class="text-sm text-gray-400 mb-1">Phone Number</label>
+      <input type="tel" id="phone" name="entry.1012497427" placeholder="Enter your phone number" class="p-3 border border-gray-700 rounded-md text-white text-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none" required>
+    </div>
+
+    <div class="flex flex-col col-span-1">
+      <label for="subject" class="text-sm text-gray-400 mb-1">Select Your Subject</label>
+      <select id="subject" name="entry.1565475192" class="p-3 border border-gray-700 rounded-md text-white text-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none" required>
         <option value="" disabled selected>Select a subject</option>
         <option value="General Inquiry">General Inquiry</option>
         <option value="Feedback">Feedback</option>
@@ -135,15 +92,14 @@
         <option value="Other">Other</option>
       </select>
     </div>
+
+    <div class="flex flex-col col-span-2">
+      <label for="message" class="text-sm text-gray-400 mb-1">Type Your Message Here</label>
+      <textarea id="message" name="entry.687026150" rows="6" placeholder="Write your message here" class="p-3 border border-gray-700 rounded-md text-white text-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none" required></textarea>
     </div>
 
-    <div class="flex flex-col pt-9">
-      <label for="message">Type Your Message Here</label>
-      <textarea id="message" name="entry.687026150" rows="6" placeholder="Write your message here" required></textarea>
-    </div>
-
-    <div class="flex justify-center pt-9">
-    <button type="submit">Submit</button>
+    <div class="flex justify-center col-span-2">
+      <button type="submit" class="px-6 py-3 bg-yellow-500 text-white font-bold text-lg rounded-md hover:bg-yellow-600 hover:shadow-md transition duration-300">Submit</button>
     </div>
   </form>
 </div>
