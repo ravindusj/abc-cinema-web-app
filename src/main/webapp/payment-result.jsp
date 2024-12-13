@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="jakarta.servlet.http.Cookie" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,15 +41,46 @@
       color: white;
       border-radius: 5px;
     }
+    .qr-code {
+      max-width: 250px;
+      margin: 20px auto;
+    }
+    .debug-info {
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin-top: 20px;
+      text-align: left;
+      font-size: 0.8em;
+    }
   </style>
 </head>
 <body>
+
+<%
+  // Retrieve cookie values
+  Cookie[] cookies = request.getCookies();
+  String userEmail = "";
+
+  if (cookies != null) {
+    for (Cookie cookie : cookies) {
+      switch (cookie.getName()) {
+        case "userEmail":
+          userEmail = URLDecoder.decode(cookie.getValue(), "UTF-8");
+          break;
+      }
+    }
+  }
+%>
+
 <div class="result-container">
   <%
     String status = request.getParameter("status");
     if (status == null) {
       status = (String) request.getAttribute("paymentId") != null ? "success" : "failed";
     }
+
+    // Debug information
+    String debugInfo = "Initial Status: " + status;
   %>
 
   <% if ("success".equals(status)) { %>
@@ -55,10 +90,36 @@
     String paymentId = (String) request.getAttribute("paymentId");
     String amount = (String) request.getAttribute("amount");
     String currency = (String) request.getAttribute("currency");
+    String qrCode = (String) request.getAttribute("qrCode");
+    String ticketInfo = (String) request.getAttribute("ticketInfo");
+
+    // Additional debug tracking
+    debugInfo += "\nPayment ID: " + (paymentId != null ? paymentId : "NULL");
+    debugInfo += "\nQR Code Available: " + (qrCode != null && !qrCode.isEmpty());
+
     if (paymentId != null) {
   %>
   <p>Payment ID: <%= paymentId %></p>
   <p>Amount: <%= amount %> <%= currency %></p>
+
+  <%
+    // Robust QR code handling
+    if (qrCode != null && !qrCode.isEmpty()) {
+  %>
+  <div class="qr-code">
+    <h2>Your Ticket QR Code</h2>
+    <img src="data:image/png;base64,<%= qrCode %>" alt="Ticket QR Code" style="max-width: 100%; height: auto;">
+    <pre><%= ticketInfo != null ? ticketInfo : "No ticket information available" %></pre>
+  </div>
+  <%
+  } else {
+    debugInfo += "\nQR Code Display Failed";
+  %>
+  <div class="failed">
+    <p>QR Code could not be generated. Please contact support.</p>
+  </div>
+  <% } %>
+
   <% } %>
   <% } else if ("cancelled".equals(status)) { %>
   <h1 class="cancelled">Payment Cancelled</h1>
@@ -72,6 +133,12 @@
   <% } %>
 
   <a href="index.jsp" class="btn">Return to Home</a>
+
+  <!-- Debug Information Section -->
+  <div class="debug-info">
+    <h3>Debug Information</h3>
+    <pre><%= debugInfo %></pre>
+  </div>
 </div>
 </body>
 </html>
