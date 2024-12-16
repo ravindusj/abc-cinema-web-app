@@ -15,7 +15,7 @@ public class QRCodeGenerator {
 
     public static String generateQRCodeBase64(String ticketInfo, int width, int height) {
         try {
-            // Validate input parameters
+
             if (ticketInfo == null || ticketInfo.isEmpty()) {
                 LOGGER.warning("Ticket info is null or empty");
                 return null;

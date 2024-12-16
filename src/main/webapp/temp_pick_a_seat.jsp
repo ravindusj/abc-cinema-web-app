@@ -22,12 +22,12 @@
 
             if (seatIndex === -1) {
                 selectedSeats.push(seat);
-                seatDiv.classList.remove("bg-blue-500");
-                seatDiv.classList.add("bg-yellow-500");
+                seatDiv.classList.remove("bg-gray-500");
+                seatDiv.classList.add("bg-violet-950");
             } else {
                 selectedSeats.splice(seatIndex, 1);
-                seatDiv.classList.remove("bg-yellow-500");
-                seatDiv.classList.add("bg-blue-500");
+                seatDiv.classList.remove("bg-violet-950");
+                seatDiv.classList.add("bg-gray-500");
             }
 
             maxSeats = selectedSeats.length;
@@ -67,7 +67,7 @@ try {
 Class.forName("org.mariadb.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/nowshowing", "user", "user");
     PreparedStatement pst = conn.prepareStatement("SELECT booked_seats FROM bookings WHERE movie_name = ?");
-    pst.setString(1, "Gladiator II");
+    pst.setString(1, "Pushpa 2: The Rule");
     ResultSet rs = pst.executeQuery();
 
     if (rs.next()) {
@@ -86,7 +86,7 @@ catch (Exception e) {
             bookedSeats.forEach(seat => {
                 const seatDiv = document.getElementById(seat);
                 if (seatDiv) {
-                    seatDiv.classList.remove('bg-blue-500', 'cursor-pointer');
+                    seatDiv.classList.remove('bg-gray-500', 'cursor-pointer');
                     seatDiv.classList.add('bg-red-500', 'cursor-not-allowed');
                     seatDiv.onclick = null;
                 }
@@ -94,9 +94,8 @@ catch (Exception e) {
         }
     </script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-200 font-poppins">
 <%
-    // Retrieve cookie values
     Cookie[] cookies = request.getCookies();
     String selectedDate = "";
     String selectedMovie = "";
@@ -130,10 +129,43 @@ catch (Exception e) {
         }
     }
 %>
-<div class="bg-black text-white min-h-screen flex flex-col items-center p-6 pt-10">
-    <h1 class="text-2xl font-bold mb-4">Pick a Seat</h1>
+
+<nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
+    <div class="flex items-center justify-between max-w-7xl mx-auto w-full">
+
+        <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
+
+        <ul class="flex items-center space-x-8">
+            <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Home</a></li>
+            <li><a href="movies.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Movies</a></li>
+            <li><a href="cinemas.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Cinemas</a></li>
+            <li><a href="contactus.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Contact Us</a></li>
+            <li><a href="temp_buyTicket.jsp" class="bg-violet-950 text-white font-normal text-sm px-4 py-2 rounded">Buy Tickets</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            navbar.style.top = '-100px';
+        } else {
+            navbar.style.top = '0.5rem';
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+</script>
+
+  <div style="padding-top: 99px;" class="text-white min-h-screen flex flex-col items-center">
+        <h2 class="text-2xl font-semibold tracking-tight text-left mb-6 text-white">Choose a Seat</h2>
     <div class="mb-4 text-center">
-        <h2 class="text-xl font-semibold"><%= selectedMovie %></h2>
+        <h2 class="text-lg font-semibold"><%= selectedMovie %></h2>
         <p><%= selectedCinema %> - <%= selectedDate %> - <%= selectedTime %></p>
     </div>
 
@@ -152,7 +184,7 @@ catch (Exception e) {
             for (String seat : seats) {
         %>
         <div id="<%= seat %>"
-             class="w-16 h-10 bg-blue-500 rounded cursor-pointer text-center flex items-center justify-center hover:bg-yellow-500"
+             class="w-16 h-10 bg-gray-500 rounded cursor-pointer text-center flex items-center justify-center hover:bg-violet-950"
              onclick="toggleSeat('<%= seat %>')">
             <%= seat %>
         </div>
@@ -161,11 +193,11 @@ catch (Exception e) {
 
     <div class="flex justify-center gap-4 mb-4">
         <div class="flex items-center gap-2">
-            <div class="w-4 h-4 bg-blue-500"></div>
+            <div class="w-4 h-4 bg-gray-500"></div>
             <span>Available</span>
         </div>
         <div class="flex items-center gap-2">
-            <div class="w-4 h-4 bg-yellow-500"></div>
+            <div class="w-4 h-4 bg-violet-950"></div>
             <span>Selected</span>
         </div>
         <div class="flex items-center gap-2">
@@ -192,8 +224,9 @@ catch (Exception e) {
                        oninput="validateInputs()">
             </div>
         </div>
-
-        <button type="submit" class="bg-yellow-500 px-4 py-2 rounded mt-9" onclick="validateInputs()">Continue for Summary</button>
+        <div style="width:400px;" class="pt-9">
+        <button type="submit" class="bg-violet-950 text-white px-4 py-2 font-medium w-full rounded-lg hover:border hover:border-white" onclick="validateInputs()">Checkout</button>
+        </div>
     </form>
 </div>
 </body>

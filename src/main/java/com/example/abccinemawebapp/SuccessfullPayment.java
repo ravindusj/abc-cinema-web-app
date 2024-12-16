@@ -18,9 +18,9 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/PaymentSuccessServlet")
-public class PaymentSuccessServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(PaymentSuccessServlet.class.getName());
+@WebServlet("/SuccessfullPayment")
+public class SuccessfullPayment extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(SuccessfullPayment.class.getName());
 
     private static final String CLIENT_ID = "AdXAiqy1nsBoA5WxABbyyb0S9cRP6zLaj7twYqjLyPFRUV-YeqUVcfe2CLFEGcaHXZlJojwi83_uolAH";
     private static final String CLIENT_SECRET = "EHlgQQsDtyBR5cFAu89mREJFt6d5qGe4zAkf7mlMbLnZXxPj2yvrPENq3FW-65CV-S7htVfvZ1GlR2li";
@@ -41,27 +41,21 @@ public class PaymentSuccessServlet extends HttpServlet {
             PaymentExecution paymentExecution = new PaymentExecution();
             paymentExecution.setPayerId(payerId);
 
-            // Execute the payment
             Payment executedPayment = payment.execute(apiContext, paymentExecution);
 
-            // Check payment state
             if ("approved".equalsIgnoreCase(executedPayment.getState())) {
-                // Get session to retrieve movie name
                 HttpSession session = request.getSession();
                 String movieName = (String) session.getAttribute("movieName");
+                String userEmail = (String) session.getAttribute("userEmail");
 
-                // Generate unique ticket information
                 String ticketInfo = generateTicketInfo(movieName, paymentId);
 
-                // Generate QR Code with more detailed logging
                 String qrCodeBase64 = generateQRCodeSafely(ticketInfo);
 
-                // Payment successful
                 request.setAttribute("paymentId", paymentId);
                 request.setAttribute("amount", executedPayment.getTransactions().get(0).getAmount().getTotal());
                 request.setAttribute("currency", executedPayment.getTransactions().get(0).getAmount().getCurrency());
 
-                // Extra null checks
                 if (qrCodeBase64 != null && !qrCodeBase64.isEmpty()) {
                     request.setAttribute("qrCode", qrCodeBase64);
                     LOGGER.info("QR Code successfully generated and set. Length: " + qrCodeBase64.length());
@@ -71,12 +65,11 @@ public class PaymentSuccessServlet extends HttpServlet {
 
                 request.setAttribute("ticketInfo", ticketInfo);
 
-                // Send confirmation email
-                sendConfirmationEmail(ticketInfo, qrCodeBase64);
+                sendConfirmationEmail(userEmail, ticketInfo, qrCodeBase64);
 
                 request.getRequestDispatcher("/payment-result.jsp").forward(request, response);
             } else {
-                // Payment not approved
+
                 LOGGER.warning("Payment not approved. State: " + executedPayment.getState());
                 response.sendRedirect("payment-result.jsp?status=failed");
             }
@@ -87,7 +80,6 @@ public class PaymentSuccessServlet extends HttpServlet {
         }
     }
 
-    // Helper method to generate unique ticket information
     private String generateTicketInfo(String movieName, String paymentId) {
         return String.format("Ticket for %s\nPayment ID: %s\nUnique ID: %s",
                 movieName,
@@ -96,7 +88,6 @@ public class PaymentSuccessServlet extends HttpServlet {
         );
     }
 
-    // Safer QR Code generation method
     private String generateQRCodeSafely(String ticketInfo) {
         try {
             String qrCode = QRCodeGenerator.generateQRCodeBase64(ticketInfo, 250, 250);
@@ -113,13 +104,10 @@ public class PaymentSuccessServlet extends HttpServlet {
         }
     }
 
-    // Method to send confirmation email
-    private void sendConfirmationEmail(String ticketInfo, String qrCodeBase64) {
-        // In a real application, get the customer's email from session or database
-        String customerEmail = "lkravindu@gmail.com";
+    private void sendConfirmationEmail(String userEmail, String ticketInfo, String qrCodeBase64) {
 
         try {
-            EmailSender.sendTicketConfirmation(customerEmail, ticketInfo, qrCodeBase64);
+            EmailSender.sendTicketConfirmation(userEmail, ticketInfo, qrCodeBase64);
             LOGGER.info("Confirmation email sent successfully");
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed to send confirmation email", e);

@@ -12,18 +12,18 @@ import java.util.Base64;
 public class EmailSender {
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final int SMTP_PORT = 587;
-    private static final String USERNAME = "ravindulach@gmail.com"; // Replace with your email
-    private static final String PASSWORD = "wvpezrwimemdvedc"; // Use App Password for Gmail
+    private static final String USERNAME = "ravindulach@gmail.com";
+    private static final String PASSWORD = "wvpezrwimemdvedc";
 
     public static void sendTicketConfirmation(String recipientEmail, String ticketInfo, String qrCodeBase64) {
-        // Configure mail properties
+
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", SMTP_HOST);
         props.put("mail.smtp.port", SMTP_PORT);
 
-        // Create a session with authentication
+
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(USERNAME, PASSWORD);
@@ -31,21 +31,17 @@ public class EmailSender {
         });
 
         try {
-            // Create a message
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(USERNAME));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
             message.setSubject("Your Movie Ticket Confirmation");
 
-            // Create multipart message
             Multipart multipart = new MimeMultipart();
-
-            // Text part
             MimeBodyPart textPart = new MimeBodyPart();
             textPart.setText(ticketInfo);
             multipart.addBodyPart(textPart);
 
-            // QR Code part
+
             if (qrCodeBase64 != null) {
                 MimeBodyPart qrCodePart = new MimeBodyPart();
                 byte[] qrCodeBytes = Base64.getDecoder().decode(qrCodeBase64);
@@ -55,10 +51,10 @@ public class EmailSender {
                 multipart.addBodyPart(qrCodePart);
             }
 
-            // Set content
+
             message.setContent(multipart);
 
-            // Send message
+
             Transport.send(message);
 
             System.out.println("Ticket confirmation email sent successfully.");

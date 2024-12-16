@@ -19,6 +19,26 @@
         <url-pattern>/addMovieServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.example.abccinemawebapp.loginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthenticationServlet</filter-name>
+        <filter-class>com.example.abccinemawebapp.AuthenticationServlet</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthenticationServlet</filter-name>
+        <url-pattern>/AuthenticationServlet</url-pattern>
+    </filter-mapping>
+
 
 
 </web-app>

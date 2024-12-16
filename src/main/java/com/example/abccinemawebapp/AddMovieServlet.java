@@ -12,7 +12,7 @@ public class AddMovieServlet extends HttpServlet {
     private static final String DB_USERNAME = "user";
     private static final String DB_PASSWORD = "user";
 
-    private static final String INSERT_MOVIE_SQL = "INSERT INTO films (title, description, imageUrl, cast, releaseDate, categories, language) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_MOVIE_SQL = "INSERT INTO films (title, description, imageUrl, cast, releaseDate, categories, language, trailer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
@@ -29,6 +29,7 @@ public class AddMovieServlet extends HttpServlet {
         String releaseDate = request.getParameter("releaseDate");
         String categories = request.getParameter("categories");
         String filmLanguage = request.getParameter("language");
+        String trailer = request.getParameter("trailer");
 
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
@@ -43,6 +44,8 @@ public class AddMovieServlet extends HttpServlet {
             preparedStatement.setString(5, releaseDate);
             preparedStatement.setString(6, categories);
             preparedStatement.setString(7, filmLanguage);
+            preparedStatement.setString(8, trailer);
+
 
             int result = preparedStatement.executeUpdate();
 

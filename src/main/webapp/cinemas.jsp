@@ -3,41 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KCC Multiplex Cinemas</title>
+  <title>Cinemas - ABC Cinema</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
 <body class="bg-gray-900 text-gray-200">
 
-<!-- Navbar -->
-<header class="bg-black py-4 shadow-lg fixed w-full top-0 left-0 z-50">
-  <div class="container mx-auto px-6 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-white uppercase">KCC Multiplex</h1>
-    <nav class="space-x-6">
-      <a href="index.jsp" class="text-white hover:text-yellow-500">Home</a>
-      <a href="buyTickets.jsp" class="text-white hover:text-yellow-500">Buy Tickets</a>
-      <a href="movies.jsp" class="text-white hover:text-yellow-500">Movies</a>
-      <a href="cinemas.jsp" class="text-yellow-500 font-semibold">Cinemas</a>
-      <a href="contactus.jsp" class="text-white hover:text-yellow-500">Contact Us</a>
-    </nav>
+<nav id="navbar" class="bg-black/75 px-6 py-4 fixed w-8/12 top-2 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
+  <div class="flex items-center justify-between max-w-7xl mx-auto w-full">
+    <div class="text-white text-2xl font-bold uppercase">ABC Cinema</div>
+
+    <ul class="flex items-center space-x-8">
+      <li><a href="index.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Home</a></li>
+      <li><a href="movies.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Movies</a></li>
+      <li><a href="cinemas.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Cinemas</a></li>
+      <li><a href="contactus.jsp" class="text-white text-sm hover:bg-gray-700 px-3 py-2 rounded font-normal">Contact Us</a></li>
+      <li><a href="temp_buyTicket.jsp" class="bg-violet-950 text-white font-normal text-sm px-4 py-2 rounded">Buy Tickets</a></li>
+    </ul>
   </div>
-</header>
+</nav>
 
-<!-- Main Content -->
-<main class="pt-24 pb-12">
-  <section class="container mx-auto px-6">
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
 
-    <!-- Cinema Halls -->
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+      navbar.style.top = '-100px';
+    } else {
+      navbar.style.top = '0.5rem';
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+</script>
+
+<main>
+  <section class="container mx-auto px-6" style="padding-top: 99px;">
+
+<h2 class="text-2xl font-semibold tracking-tight text-center mb-6 text-white">Theaters</h2>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <!-- Cinema Hall 1 -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 1" class="w-full h-48 object-cover">
+      <div class="bg-gray-300 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://kccmultiplex.lk/assets/images/cinema/c1/c1-06.jpg" alt="Cinema Hall 1" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 1 - C1</h2>
-          <p class="text-gray-400 mb-4">Cinema 1 features the latest in Dolby Atmos surround sound, paired with ultra-bright 4K digital projection and 3D capabilities. With a seating capacity of 135, it's designed for an immersive experience.</p>
+          <h2 class="text-2xl font-bold text-violet-950 mb-4">ABC Multiplex 01</h2>
+          <p class="text-gray-900 mb-4 font-medium">Cinema 1 features the latest in Dolby Atmos surround sound, paired with ultra-bright 4K digital projection and 3D capabilities. With a seating capacity of 135, it's designed for an immersive experience.</p>
 
-          <!-- Features -->
-          <div class="space-y-2">
+          <div class="space-y-2 text-gray-900">
             <div class="flex items-center space-x-2">
               <span class="text-xl">📡</span>
               <span class="text-lg font-medium">Dolby Atmos</span>
@@ -54,15 +77,13 @@
         </div>
       </div>
 
-      <!-- Cinema Hall 2 -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 2" class="w-full h-48 object-cover">
+      <div class="bg-gray-300 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://entrepreneurship.babson.edu/wp-content/uploads/2020/10/Movie-1200-630.jpg" alt="Cinema Hall 2" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 2 - C2</h2>
-          <p class="text-gray-400 mb-4">Cinema 2 offers a premium cinema experience with the latest sound and visual technologies. It seats 180 and is equipped with advanced projection systems, ensuring crystal-clear visuals and superior sound.</p>
+          <h2 class="text-2xl font-bold text-violet-950 mb-4">ABC Multiplex 02</h2>
+          <p class="text-gray-900 mb-4 font-medium">Cinema 2 offers a premium cinema experience with the latest sound and visual technologies. It seats 180 and is equipped with advanced projection systems, ensuring crystal-clear visuals and superior sound.</p>
 
-          <!-- Features -->
-          <div class="space-y-2">
+          <div class="space-y-2 text-gray-900">
             <div class="flex items-center space-x-2">
               <span class="text-xl">📡</span>
               <span class="text-lg font-medium">Dolby Surround</span>
@@ -79,15 +100,13 @@
         </div>
       </div>
 
-      <!-- Cinema Hall 3 -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/800x450" alt="Cinema Hall 3" class="w-full h-48 object-cover">
+      <div class="bg-gray-300 rounded-lg shadow-lg overflow-hidden">
+        <img src="https://t4.ftcdn.net/jpg/06/89/49/95/360_F_689499531_MeYeI1VVavgYQRzz0S3JxkQ9VxzgYZQh.jpg" alt="Cinema Hall 3" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h2 class="text-2xl font-semibold text-yellow-500 mb-4">Cinema Hall 3 - C3</h2>
-          <p class="text-gray-400 mb-4">Cinema 3 is designed for large groups and families, featuring spacious seating and high-definition visuals. It seats 200 viewers and provides a premium cinematic experience with rich sound and clear imagery.</p>
+          <h2 class="text-2xl font-bold text-violet-950 mb-4">ABC Multiplex 03</h2>
+          <p class="text-gray-900 mb-4 font-medium">Cinema 3 is designed for large groups and families, featuring spacious seating and high-definition visuals. It seats 200 viewers and provides a premium cinematic experience with rich sound and clear imagery.</p>
 
-          <!-- Features -->
-          <div class="space-y-2">
+          <div class="space-y-2 text-gray-900">
             <div class="flex items-center space-x-2">
               <span class="text-xl">📡</span>
               <span class="text-lg font-medium">Dolby Atmos</span>
@@ -107,11 +126,6 @@
     </div>
   </section>
 </main>
-
-<!-- Footer -->
-<footer class="bg-black py-6 text-center text-gray-400">
-  <p>&copy; 2024 KCC Multiplex. All rights reserved.</p>
-</footer>
 
 </body>
 </html>

@@ -13,10 +13,10 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 50px;
-      background-color: #f4f4f4;
+      background-color: #111827;
     }
     .result-container {
-      background-color: white;
+      background-color: #d1d5db;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       padding: 30px;
@@ -24,20 +24,20 @@
       margin: 0 auto;
     }
     .success {
-      color: green;
+      color: #2e1065;
     }
     .failed {
       color: red;
     }
     .cancelled {
-      color: orange;
+      color: #facc15;
     }
     .btn {
       display: inline-block;
       padding: 10px 20px;
       margin-top: 20px;
       text-decoration: none;
-      background-color: #007bff;
+      background-color: #2e1065;
       color: white;
       border-radius: 5px;
     }
@@ -45,19 +45,11 @@
       max-width: 250px;
       margin: 20px auto;
     }
-    .debug-info {
-      background-color: #f0f0f0;
-      padding: 10px;
-      margin-top: 20px;
-      text-align: left;
-      font-size: 0.8em;
-    }
   </style>
 </head>
-<body>
+<body class="flex justify-center items-center flex-col min-h-screen">
 
 <%
-  // Retrieve cookie values
   Cookie[] cookies = request.getCookies();
   String userEmail = "";
 
@@ -79,13 +71,12 @@
       status = (String) request.getAttribute("paymentId") != null ? "success" : "failed";
     }
 
-    // Debug information
     String debugInfo = "Initial Status: " + status;
   %>
 
   <% if ("success".equals(status)) { %>
-  <h1 class="success">Payment Successful!</h1>
-  <p>Your payment has been processed.</p>
+  <h1 class="success">Your Payment Successful !</h1>
+    <p>Your payment has been processed.</p> <p> We will send you email with QR Tickets. Thank You for choosing us.</p>
   <%
     String paymentId = (String) request.getAttribute("paymentId");
     String amount = (String) request.getAttribute("amount");
@@ -93,9 +84,6 @@
     String qrCode = (String) request.getAttribute("qrCode");
     String ticketInfo = (String) request.getAttribute("ticketInfo");
 
-    // Additional debug tracking
-    debugInfo += "\nPayment ID: " + (paymentId != null ? paymentId : "NULL");
-    debugInfo += "\nQR Code Available: " + (qrCode != null && !qrCode.isEmpty());
 
     if (paymentId != null) {
   %>
@@ -103,7 +91,6 @@
   <p>Amount: <%= amount %> <%= currency %></p>
 
   <%
-    // Robust QR code handling
     if (qrCode != null && !qrCode.isEmpty()) {
   %>
   <div class="qr-code">
@@ -113,32 +100,25 @@
   </div>
   <%
   } else {
-    debugInfo += "\nQR Code Display Failed";
+
   %>
   <div class="failed">
-    <p>QR Code could not be generated. Please contact support.</p>
+    <p>QR Code could not be generated. There was an error Processing QR Code.</p>
   </div>
   <% } %>
 
   <% } %>
   <% } else if ("cancelled".equals(status)) { %>
   <h1 class="cancelled">Payment Cancelled</h1>
-  <p>You have cancelled the payment process.</p>
+  <p>You have cancelled the payment for your purchase.</p>
   <% } else if ("error".equals(status)) { %>
   <h1 class="failed">Payment Error</h1>
-  <p>There was an error processing your payment. Please try again.</p>
+  <p>There was an error processing your ticket payment.</p>
   <% } else { %>
   <h1 class="failed">Payment Failed</h1>
-  <p>Your payment could not be completed. Please try again.</p>
+  <p>Your ticket payment could not be completed. There was an error in your payment.</p>
   <% } %>
 
   <a href="index.jsp" class="btn">Return to Home</a>
-
-  <!-- Debug Information Section -->
-  <div class="debug-info">
-    <h3>Debug Information</h3>
-    <pre><%= debugInfo %></pre>
-  </div>
-</div>
 </body>
 </html>
