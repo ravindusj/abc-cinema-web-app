@@ -13,7 +13,7 @@ public class EmailSender {
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final int SMTP_PORT = 587;
     private static final String USERNAME = "ravindulach@gmail.com";
-    private static final String PASSWORD = "wvpezrwimemdvedc";
+    private static final String PASSWORD = "fqlkwdzkhfrylzqb";
 
     public static void sendTicketConfirmation(String recipientEmail, String ticketInfo, String qrCodeBase64) {
 
