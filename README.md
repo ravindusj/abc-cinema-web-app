@@ -86,8 +86,8 @@ A modern web-based ticket booking system for ABC Cinema, developed using Java. T
 
 ## 🔗 Related Links
 
-- [Live Demo](your-demo-link)
-- [Documentation](your-docs-link)
+- [Live Demo](https://nsbm365-my.sharepoint.com/:v:/g/personal/earlalwis_students_nsbm_ac_lk/EZlCB9sgJNFBpIe2oZPkLFEBUHmMqew4-JkBllSFlVQ2mg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=VUpObo)
+- [Documentation](https://nsbm365-my.sharepoint.com/:b:/g/personal/earlalwis_students_nsbm_ac_lk/ETwZrzkJnfBIpIQMENxEqf8BHh9_iThjeG08OG37X-jSoQ?e=aoyueM)
 - [API Reference](your-api-docs-link)
 
 ## 🙏 Acknowledgments
