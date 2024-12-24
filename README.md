@@ -1,6 +1,7 @@
-![image](https://github.com/user-attachments/assets/c9a784ff-5b17-49d9-bc1f-220d393f5643)# ABC Cinema Ticket Booking System
+![image](https://media.discordapp.net/attachments/1306823675286388797/1320988218031734804/Screenshot_2024-12-24_110511.png?ex=676b99a5&is=676a4825&hm=0e23230ba4d88aeac9f46a71cf0ddf73ba3b28d92b37145263d89e44095d5f6c&=&format=webp&quality=lossless&width=908&height=433)
+# ABC Cinema Ticket Booking System
 
-![ABC Cinema Banner](https://cdn.discordapp.com/attachments/1306823675286388797/1320988218031734804/Screenshot_2024-12-24_110511.png?ex=676b99a5&is=676a4825&hm=0e23230ba4d88aeac9f46a71cf0ddf73ba3b28d92b37145263d89e44095d5f6c&)
+![ABC Cinema Banner](https://cdn.discordapp.com/attachments/1306823675286388797/1320989263583776860/Screenshot_2024-12-24_110925.png?ex=676b9a9f&is=676a491f&hm=6f326ed3011b91fc1be66ba05783fd205ea8afe9f1932f380ee46cfe5d4a00e8&)
 
 A modern web-based ticket booking system for ABC Cinema, developed using Java. This system provides a seamless experience for customers to book movie tickets online while giving cinema administrators efficient tools for management.
 
