@@ -1,7 +1,7 @@
-![image](https://media.discordapp.net/attachments/1306823675286388797/1320988218031734804/Screenshot_2024-12-24_110511.png?ex=676b99a5&is=676a4825&hm=0e23230ba4d88aeac9f46a71cf0ddf73ba3b28d92b37145263d89e44095d5f6c&=&format=webp&quality=lossless&width=908&height=433)
+![image](https://github.com/ravindusj/abc-cinema-web-app/blob/production/Screenshot_2024-12-24_110925.png)
 # ABC Cinema Ticket Booking System
 
-![ABC Cinema Banner](https://cdn.discordapp.com/attachments/1306823675286388797/1320989263583776860/Screenshot_2024-12-24_110925.png?ex=676b9a9f&is=676a491f&hm=6f326ed3011b91fc1be66ba05783fd205ea8afe9f1932f380ee46cfe5d4a00e8&)
+![ABC Cinema Banner](https://github.com/ravindusj/abc-cinema-web-app/blob/production/Screenshot_2024-12-24_110511.png)
 
 A modern web-based ticket booking system for ABC Cinema, developed using Java. This system provides a seamless experience for customers to book movie tickets online while giving cinema administrators efficient tools for management.
 
@@ -37,15 +37,15 @@ A modern web-based ticket booking system for ABC Cinema, developed using Java. T
 ## 📸 Screenshots
 
 ### Movie Selection
-![Movie Selection](https://media.discordapp.net/attachments/1306823675286388797/1320987766531821589/WhatsApp_Image_2024-12-16_at_21.51.56_b148d67d.jpg?ex=676b993a&is=676a47ba&hm=e9d7ba1545359a92df4270601e3fe58203fbac57ba1fd136528ee477b0351b0f&=&format=webp&width=908&height=427)
+![Movie Selection](https://github.com/ravindusj/abc-cinema-web-app/blob/production/WhatsApp_Image_2024-12-16_at_21.51.56_b148d67d.jpg)
 *Select your preferred movie, date, time, and cinema hall*
 
 ### Seat Selection
-![Seat Selection](https://media.discordapp.net/attachments/1306823675286388797/1320987764308574319/WhatsApp_Image_2024-12-16_at_21.51.54_97723761.jpg?ex=676b9939&is=676a47b9&hm=47a97101934a4abd2ecb3b57d0d01bd179b620ae88284fe6ff4ef61c722f0aa6&=&format=webp&width=908&height=427)
+![Seat Selection](https://github.com/ravindusj/abc-cinema-web-app/blob/production/WhatsApp_Image_2024-12-16_at_21.51.54_97723761.jpg)
 *Interactive seat selection with real-time availability*
 
 ### Payment Confirmation
-![Payment Confirmation](https://media.discordapp.net/attachments/1306823675286388797/1320987765583646853/WhatsApp_Image_2024-12-16_at_21.51.55_ceb1aef2.jpg?ex=676b993a&is=676a47ba&hm=554afc12668e0d0179c5ab98a62173f595860b5b91e103b89a86220b120c508a&=&format=webp&width=908&height=426)
+![Payment Confirmation](https://github.com/ravindusj/abc-cinema-web-app/blob/production/WhatsApp_Image_2024-12-16_at_21.51.55_ceb1aef2.jpg)
 *Successful payment page with QR code ticket*
 
 ## 🛠️ Technical Stack
